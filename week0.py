@@ -1,17 +1,9 @@
-def percentage():
-    # .strip("%") removes the percentage symbol from either end
-    userinput = input("Enter a percentage (e.g., 85%): ")
-    return userinput.strip("%")
+# Gathering inputs
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
 
-def convert(n):
-    # Converts the whole number percentage into a decimal rate
-    # Using the /= operator keeps the logic concise
-    rate = float(n)
-    rate /= 100
-    return rate
+# Multiplying and dividing by 2
+res = (a * b) / 2
 
-# Execution
-clean_pct = percentage()
-decimal_rate = convert(clean_pct)
-
-print(f"The decimal rate is: {decimal_rate}")
+# Output
+print("Result:", res, " if the number is an integer, number is even and if number has a decimal other than .0 it is odd")
