@@ -1,6 +1,11 @@
-x = int(input("What is x?"))
-y = int(input("What is y?"))
-if x < y or x > y:
-    print("x is not equal to y")
+score = int(input("Score :"))
+if score >= 90 and score <= 100:
+    print("Grade A")
+elif score >= 80 and score <= 89:
+    print("Grade B")
+elif score >= 70 and score < 80:
+    print("Grade C")
+elif score >= 60 and score < 70:
+    print("Grade D")
 else:
-    print("x is equal to y")
+    print("Grade F")
