@@ -2,11 +2,11 @@ def main():
     time = input("What is the time? You must answer in the 24h format. ")
     converted_time = convert(time)
     if 7.0 <= converted_time <= 8.00:
-        print("breakfast time")
+        print("it is breakfast time")
     elif 12.0 <= converted_time <= 13.0:
-        print("lunch time")
+        print("it is lunch time")
     elif 18.0 <= converted_time <= 19.0:
-        print("dinner time")
+        print("it is dinner time")
     else:
         print("")
 def convert(time):
