@@ -5,4 +5,4 @@ students = [
     {"name":"Drako", "house":"Slytherin", "patronus": None}
 ]
 for i in students:
-    print(i["name"])
+    print(i["name"],i["house"], i["patronus"], sep = ", ")
