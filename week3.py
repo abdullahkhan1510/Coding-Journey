@@ -3,3 +3,5 @@ try:
     print("X is: ", x)
 except ValueError:
     print("X is not an integer")
+else:
+    print("X is: ", x)
