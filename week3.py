@@ -1,12 +1,12 @@
-while True:
-    try:
-        score = int(input("Enter your test score: "))
-        if score < 0:
-            print("Score cannot be negative.")
-        else:
-            print("Your score is:", score)
-            break
-    except ValueError:
-        print("That is not a valid integer.")
+def main():
+    x = get_int()
+    print("x is", x)
 
-print("Final score entered:", score)
+def get_int():
+    while True:
+        try:
+            return int(input("What's x?"))
+        except ValueError:
+            pass
+
+main()
