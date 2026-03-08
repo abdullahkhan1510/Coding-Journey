@@ -1,21 +1,21 @@
+menu = {
+    "Baja Taco": 4.25,
+    "Burrito": 7.50,
+    "Bowl": 8.50,
+    "Nachos": 11.00,
+    "Quesadilla": 8.50,
+    "Super Burrito": 8.50,
+    "Super Quesadilla": 9.50,
+    "Taco": 3.00,
+    "Tortilla Salad": 8.00
+}
+total = 0.0
 while True:
     try:
-        fraction = input("Enter your fraction:")
-        num1, num2 = fraction.split("/")
-        num1 = int(num1)
-        num2 = int(num2)
-        if num1 > num2:
-            continue
-        else:
-            break
-    except ValueError:
-        pass
-    except ZeroDivisionError:
-        pass
-percent = round(num1/num2*100)
-if percent <= 1:
-    print("E")
-elif percent >= 99:
-    print("F")
-else:
-    print(f"{percent}%")
+        item = input("Item: ").title()
+        if item in menu:
+            total = total + menu[item]
+            print(f"Total: ${total:.2f}")
+    except EOFError:
+        print("")
+        break
