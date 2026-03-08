@@ -1,21 +1,14 @@
-menu = {
-    "Baja Taco": 4.25,
-    "Burrito": 7.50,
-    "Bowl": 8.50,
-    "Nachos": 11.00,
-    "Quesadilla": 8.50,
-    "Super Burrito": 8.50,
-    "Super Quesadilla": 9.50,
-    "Taco": 3.00,
-    "Tortilla Salad": 8.00
-}
-total = 0.0
+grocery_list = {}
 while True:
     try:
-        item = input("Item: ").title()
-        if item in menu:
-            total = total + menu[item]
-            print(f"Total: ${total:.2f}")
+        item = input().upper()
+        if item in grocery_list:
+            grocery_list[item] += 1
+        else:
+             grocery_list[item] = 1
+
     except EOFError:
         print("")
         break
+for i in sorted(grocery_list):
+    print(f"{grocery_list[i]} {i}")
