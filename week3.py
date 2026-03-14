@@ -1,22 +1,38 @@
-votes = {}
-
-print("Enter your votes (Press Ctrl+D to stop):")
+months = [
+    "January", "February", "March",
+    "April", "May", "June",
+    "July", "August", "September",
+    "October", "November", "December"
+]
 
 while True:
     try:
-        # Prompt user for a name and normalize it to uppercase
-        candidate = input("Vote for: ").strip().upper()
-        
-        if not candidate:
-            continue
+        date = input("Date: ")
 
-        # Logic: If name exists, add 1. If not, start at 1.
-        votes[candidate] = votes.get(candidate, 0) + 1
+        # Slash format: 9/8/1636
+        if "/" in date:
+            month, day, year = date.split("/")
+            month = int(month)
+            day = int(day)
+            year = int(year)
 
-    except EOFError:
-        print("\n--- Final Results ---")
-        break
+            # Validate and print
+            if 1 <= month <= 12 and 1 <= day <= 31:
+                print(f"{year}-{month:02}-{day:02}")
+                break
 
-# Sort alphabetically by candidate name
-for name in sorted(votes):
-    print(f"{name}: {votes[name]} votes")
+        # Comma format: September 8, 1636
+        elif "," in date:
+            month_name, day, year = date.split(" ")
+            day = int(day.replace(",", ""))
+            year = int(year)
+            month = months.index(month_name) + 1  # Convert month name to number
+
+            # Validate and print
+            if 1 <= month <= 12 and 1 <= day <= 31:
+                print(f"{year}-{month:02}-{day:02}")
+                break
+
+    except:
+        # Invalid input → loop continues
+        pass
