@@ -1,14 +1,24 @@
-distances = {
-    "Voyager 1": 163,
-    "Voyager 2": 136,
-    "Pioneer 10": 80,
-    "New Horizons": 58,
-    "Pioneer 11": 44
-}
+while True:
+    try:
+        fraction = input("Enter fraction: ")
+        x, y = fraction.split("/")
+        x = int(x)
+        y = int(y)
 
-def main():
-    for name in distances:
-        print(f"{name} is {distances[name]} AU from Earth")
+        if y == 0:
+            continue
+        if x > y:
+            continue
 
-if __name__ == "__main__":
-    main()
+        percentage = round((x / y) * 100)
+
+        if percentage <= 1:
+            print("E")
+        elif percentage >= 99:
+            print("F")
+        else:
+            print(f"{percentage}%")
+
+        break
+    except ValueError:
+        pass
