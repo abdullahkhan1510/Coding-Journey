@@ -1,24 +1,13 @@
+grocery = {}
 while True:
     try:
-        fraction = input("Enter fraction: ")
-        x, y = fraction.split("/")
-        x = int(x)
-        y = int(y)
-
-        if y == 0:
-            continue
-        if x > y:
-            continue
-
-        percentage = round((x / y) * 100)
-
-        if percentage <= 1:
-            print("E")
-        elif percentage >= 99:
-            print("F")
+        item = input("Item: ")
+        if item in grocery:
+            grocery[item] = grocery[item] + 1
         else:
-            print(f"{percentage}%")
-
+            grocery[item] = 1
+    except EOFError:
         break
-    except ValueError:
-        pass
+
+for item in sorted(grocery):
+    print(f"{grocery[item]} {item.upper()}")
