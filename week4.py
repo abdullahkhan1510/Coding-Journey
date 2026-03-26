@@ -1,12 +1,19 @@
 while True:
     try:
-        time = input("Time: ")
+        time, period = input("Enter time: ").split()
+        period = period.upper()
         hours, minutes = time.split(":")
         hours = int(hours)
         minutes = int(minutes)
 
-        if 0 <= hours < 24 and 0 <= minutes < 60:
-            print(f"{hours:02d}:{minutes:02d}")
-            break
+        if period == "AM":
+            if hours == 12:
+                hours = 0
+        elif period == "PM":
+            if hours != 12:
+                hours += 12
+        break
     except ValueError:
+        print("Invalid format")
         pass
+print(f"{hours:02d}:{minutes:02d}")
