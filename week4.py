@@ -1,19 +1,12 @@
-while True:
-    try:
-        time, period = input("Enter time: ").split()
-        period = period.upper()
-        hours, minutes = time.split(":")
-        hours = int(hours)
-        minutes = int(minutes)
+# Simple Temp Converter
+unit = input("Is this Celsius or Fahrenheit? (C/F): ")
+temp = float(input("Enter the degrees: "))
 
-        if period == "AM":
-            if hours == 12:
-                hours = 0
-        elif period == "PM":
-            if hours != 12:
-                hours += 12
-        break
-    except ValueError:
-        print("Invalid format")
-        pass
-print(f"{hours:02d}:{minutes:02d}")
+if unit == "C" or unit == "c":
+    new_temp = (temp * 9/5) + 32
+    print("In Fahrenheit that is:", new_temp)
+elif unit == "F" or unit == "f":
+    new_temp = (temp - 32) * 5/9
+    print("In Celsius that is:", new_temp)
+else:
+    print("I don't know that unit")
