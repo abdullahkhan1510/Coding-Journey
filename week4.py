@@ -1,6 +1,9 @@
-def format_name(name):
-    return name.title()
-
-name = input("Name: ")
-formatted = format_name(name)
-print("Hello,", formatted)
+age = int(input("Please enter your age:"))
+if age >= 65:
+    print("Senior")
+elif age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teen")
+else:
+    print("Child")
