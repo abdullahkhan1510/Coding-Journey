@@ -1,7 +1,10 @@
-count = 0
-num = int(input("Please enter a number: "))
-while num > 0:
-    num = num // 10
-    count = count + 1
-
-print("The length is: ", count)
+n = int(input("Enter number: "))
+for i in range(1,n+1):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)
