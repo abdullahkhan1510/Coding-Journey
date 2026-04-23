@@ -1,8 +1,6 @@
 n = int(input("Please enter a number: "))
-reverse = 0
-while n > 0:
-    digit = n % 10
-    reverse = reverse*10+digit
-    n = n // 10
-
-print(reverse)
+for i in range(1,n+1):
+    if i % 2 == 0:
+        print(i, ",Even")
+    elif i % 2 != 0:
+        print(i, ",Odd")
