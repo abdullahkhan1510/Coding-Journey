@@ -1,6 +1,14 @@
 count = 0
-n = int(input("Please enter a number:"))
+def count_even(n):
+    if n % 2 == 0:
+        return True
+    else:
+        return False
+    
+n = int(input("Please enter a number: "))
 for i in range(1,n+1):
-    if i % 3 == 0 or i % 5 == 0:
+    if count_even(i) == True:
         count += 1
-print("The count is," ,count)
+    else:
+        count = count
+print(f"{count} numbers from 1 to {n} are even")
