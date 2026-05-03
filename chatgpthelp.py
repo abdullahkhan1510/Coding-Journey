@@ -1,8 +1,8 @@
-reverse = ""
-
+count = 0
 word = input("Please enter a word: ")
 
-for letter in word:
-    reverse = letter + reverse
+for i in word:
+    if "a" in i:
+        count += 1
 
-print("The reversed word is:", reverse)
+print(f"The letter a appears in your word {count} times")
