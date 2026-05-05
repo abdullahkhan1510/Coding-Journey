@@ -1,8 +1,9 @@
-count = 0
-word = input("Please enter a word: ")
-
-for i in word:
-    if "a" in i:
-        count += 1
-
-print(f"The letter a appears in your word {count} times")
+secret = 42
+while True:
+    num = int(input("Guess: "))
+    if num != secret:
+        print("Wrong, try again")
+    else:
+        print("Correct")
+        break
+    
