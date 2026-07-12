@@ -1,12 +1,7 @@
-while True:
-    try:
-        time = input("Time: ")
-        hours, minutes = time.split(":")
-        hours = int(hours)
-        minutes = int(minutes)
-
-        if 0 <= hours < 24 and 0 <= minutes < 60:
-            print(f"{hours:02d}:{minutes:02d}")
-            break
-    except ValueError:
-        pass
+num = int(input("Please enter your even or odd number: "))
+def is_even(n):
+    if n % 2 == 0:
+        return "Number is even"
+    else:
+        return "Number is odd"
+print(is_even(num))
