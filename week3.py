@@ -1,7 +1,10 @@
-num = int(input("Please enter your even or odd number: "))
-def is_even(n):
-    if n % 2 == 0:
-        return "Number is even"
+a = int(input("Please enter the first number: "))
+b = int(input("Please enter the second number: "))
+def is_larger(num1,num2):
+    if num1 > num2:
+        return num1
+    elif num2 > num1:
+        return num2
     else:
-        return "Number is odd"
-print(is_even(num))
+        return "Numbers are equal"
+print(is_larger(a,b))
