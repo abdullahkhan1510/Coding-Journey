@@ -3,5 +3,5 @@ def square(n):
     return n * n
 
 for i in range(1, num+1):
-    print(i, "-->", square(i))
+    print(i, "-->", sqare(i))
     
