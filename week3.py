@@ -1,7 +1,9 @@
-num = int(input("What is your number? "))
-def square(n):
-    return n * n
-
+num = int(input("Please enter a number: "))
+def mot(n):
+    if n % 3 == 0:
+        return "True"
+    else:
+        return "False"
 for i in range(1, num+1):
-    print(i, "-->", sqare(i))
-    
+    if mot(i) == "True":
+        print(i)
