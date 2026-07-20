@@ -1,13 +1,5 @@
-word = input("Please enter a word: ").lower()
-count = 0
-def is_vowel(letter):
-    if letter in "aeiou":
-        return True
-    else:
-        return False
-
-for letter in word:
-    if is_vowel(letter):
-        count = count + 1
-
-print("The word has", count, "vowels in it")
+num = int(input("Please enter a number: "))
+def cube(n):
+    return n * n * n
+numcubed = cube(num)
+print("The number you entered when cubed is,", numcubed)
