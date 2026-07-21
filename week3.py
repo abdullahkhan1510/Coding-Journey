@@ -1,5 +1,5 @@
-text = input("Please enter your text: ")
-def shout(n):
-    return n.upper()+ "!!!"
-
-print(shout(text))
+name = input("Please enter your name: ")
+def greet(n):
+    n = n.strip().title()
+    return "Hello " + n + "!"
+print(greet(name))
