@@ -1,5 +1,8 @@
-name = input("Please enter your name: ")
-def greet(n):
-    n = n.strip().title()
-    return "Hello " + n + "!"
-print(greet(name))
+a = int(input("Please enter a number: "))
+b = int(input("Please enter a number: "))
+
+def add(a,b):
+    ab = a + b
+    ab = str(ab)
+    return "The sum is " + ab
+print(add(a,b))
