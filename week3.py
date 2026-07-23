@@ -1,7 +1,10 @@
-age = int(input("Please enter a number: "))
-def is_adult(age):
-    if age >= 18:
-        return "Adult"
+a = int(input("Please enter a number: "))
+b = int(input("Please enter a number: "))
+def compare(a, b):
+    if a > b:
+        return "First is larger"
+    elif b > a:
+        return "Second is larger"
     else:
-        return "Minor"
-print(is_adult(age))
+        return "They are equal"
+print(compare(a,b))
