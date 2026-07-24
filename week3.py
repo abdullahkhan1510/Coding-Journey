@@ -1,7 +1,7 @@
-age = int(input("Please enter your age: "))
-def can_vote(age):
-    if age >= 18 and age < 120:
-        print("Can vote")
+day = input("Please enter a day of the week: ").title()
+def weekend(day):
+    if day == "Sunday" or day == "Saturday":
+        return "Weekend"
     else:
-        print("Can't vote")
-print(can_vote(age))
+        return "Weekday"
+print(weekend(day))
