@@ -1,10 +1,7 @@
-a = int(input("Please enter a number: "))
-b = int(input("Please enter a number: "))
-def compare(a, b):
-    if a > b:
-        return "First is larger"
-    elif b > a:
-        return "Second is larger"
+age = int(input("Please enter your age: "))
+def can_vote(age):
+    if age >= 18 and age < 120:
+        print("Can vote")
     else:
-        return "They are equal"
-print(compare(a,b))
+        print("Can't vote")
+print(can_vote(age))
