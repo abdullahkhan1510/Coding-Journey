@@ -1,11 +1,10 @@
-card = input("Please enter your credit card number: ")
-cardlen = len(card)
-cardlen = int(cardlen)
-ogdig = 4
-stars = cardlen-ogdig
-
-for i in range(cardlen):
-    if cardlen - i > 4:
-        print("*", end = "")
+entered = input("camelCase:")
+enteredlen = len(entered)
+print("Snakecase:", end = "")
+for letter in entered:
+    if letter.isupper():
+        print("_", end = "")
+        letter = letter.lower()
+        print(letter, end = "")
     else:
-        print(card[i], end = "")
+        print(letter, end = "")
