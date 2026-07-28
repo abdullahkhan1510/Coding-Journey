@@ -1,19 +1,13 @@
-amountdue = 50
-print("Amount due:", amountdue)
-while amountdue > 0:
-    insert = int(input("Insert Coin: "))
-    if insert == 25:
-        amountdue = amountdue - 25
-        print("Amount due:", amountdue)
-    elif insert == 10:
-        amountdue = amountdue - 10
-        print("Amount due:", amountdue)
-    elif insert == 5:
-        amountdue = amountdue - 5
-        print("Amount due:", amountdue)
+count = 0
+pin = 1234
+while count < 3:
+    newpin = int(input("Enter pin: "))
+    if newpin == pin:
+        print("Access granted")
+        break
     else:
-        amountdue = amountdue
-        print("Amount due:", amountdue)
-        
-
-        
+        print("Incorrect pin")
+        count = count + 1
+        if count == 3: 
+            print("Card blocked")
+            break
