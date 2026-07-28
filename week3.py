@@ -1,13 +1,19 @@
-count = 0
-pin = 1234
-while count < 3:
-    newpin = int(input("Enter pin: "))
-    if newpin == pin:
-        print("Access granted")
-        break
+message = input("Please enter your message: ").lower()
+for letter in message:
+    if letter == "a":
+        letter = letter.replace("a","")
+        print(letter, end = "")
+    elif letter == "e":
+            letter = letter.replace("e","")
+            print(letter, end = "")
+    elif letter == "i":
+            letter = letter.replace("i","")
+            print(letter, end = "")
+    elif letter == "o":
+            letter = letter.replace("o","")
+            print(letter, end = "")
+    elif letter == "u":
+            letter = letter.replace("u","")
+            print(letter, end = "")
     else:
-        print("Incorrect pin")
-        count = count + 1
-        if count == 3: 
-            print("Card blocked")
-            break
+        print(letter, end = "")
