@@ -1,19 +1,26 @@
-message = input("Please enter your message: ").lower()
-for letter in message:
-    if letter == "a":
-        letter = letter.replace("a","")
-        print(letter, end = "")
-    elif letter == "e":
-            letter = letter.replace("e","")
-            print(letter, end = "")
-    elif letter == "i":
-            letter = letter.replace("i","")
-            print(letter, end = "")
-    elif letter == "o":
-            letter = letter.replace("o","")
-            print(letter, end = "")
-    elif letter == "u":
-            letter = letter.replace("u","")
-            print(letter, end = "")
-    else:
-        print(letter, end = "")
+foods = {
+    "Apple": 130,
+    "Avocado": 50,
+    "Banana": 110,
+    "Cantaloupe": 50,
+    "Grapefruit": 60,
+    "Grapes": 90,
+    "Honeydew Melon": 50,
+    "Kiwi Fruit": 90,
+    "Lemon": 15,
+    "Lime": 20,
+    "Nectarine": 60,
+    "Orange": 80,
+    "Peach": 60,
+    "Pear": 100,
+    "Pineapple": 50,
+    "Plums": 70,
+    "Strawberries": 50,
+    "Sweet Cherries": 100,
+    "Tangerine": 50,
+    "Watermelon": 80
+}
+
+fruit = input("Please enter a fruit: ").strip().title()
+if fruit in foods:
+    print(foods[fruit])
