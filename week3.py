@@ -1,4 +1,3 @@
-import random
-
-coin = random.choice(["Heads", "Tails"])
+from random import choice
+coin = choice(["Heads", "Tails"])
 print(coin)
