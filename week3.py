@@ -1,3 +1,6 @@
-from random import choice
-coin = choice(["Heads", "Tails"])
-print(coin)
+import random
+
+cards = ["Jack", "Queen", "King"]
+random.shuffle(cards)
+for card in cards:
+    print(card)
