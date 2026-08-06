@@ -1,6 +1,6 @@
-import random
+import sys
+try:
 
-cards = ["Jack", "Queen", "King"]
-random.shuffle(cards)
-for card in cards:
-    print(card)
+    print("Hello, my name is", sys.argv[1])
+except IndexError:
+    print("Nothing at said index")
