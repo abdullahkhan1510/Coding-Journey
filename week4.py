@@ -1,10 +1,11 @@
-n = int(input("Please enter a number: "))
-for i in range(1,n+1):
-    if i % 2 == 0 and i % 7 == 0:
-        print("EvenSeven")
-    elif i % 2 == 0:
-        print("Even")
-    elif i % 7 == 0:
-        print("Seven")
-    else:
-        print(i)
+import json
+import requests
+import sys
+
+if len(sys.argv) != 2:
+    sys.exit()
+
+response = requests.get("https://itunes.apple.com/search?entity=song&limit=5&term=" + sys.argv[1])
+o = response.json()
+for result in o["results"]:
+    print(result["trackName"])
