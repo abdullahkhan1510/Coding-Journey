@@ -13,6 +13,7 @@ elif length == 2:
     print()
     print("Adieu, adieu, to", names[0], "and", names[1])
 else:
-    last = names[-1]
+    last = names.pop()
     print()
-    print("Adieu, adieu, to", ", ".join(names[:-1]) + ", and", last)
+    print(last)
+    print("Adieu, adieu, to", ", ".join(names) + ", and", last)
