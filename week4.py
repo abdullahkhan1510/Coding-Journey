@@ -1,19 +1,14 @@
-names = []
+import random
+n = 0
+while n <= 0:
+    n = int(input("Level: "))
+value = random.randint(1,n+1)
 while True:
-    try:
-        name = input("Name: ")
-        names.append(name)
-    except EOFError:
+    entered = int(input("Guess:"))
+    if entered < value:
+        print("Too small!")
+    elif entered > value:
+        print("Too large!")
+    elif entered == value:
+        print("Just right!")
         break
-length = len(names)
-if length == 1:
-    print()
-    print("Adieu, adieu to", name)
-elif length == 2:
-    print()
-    print("Adieu, adieu, to", names[0], "and", names[1])
-else:
-    last = names.pop()
-    print()
-    print(last)
-    print("Adieu, adieu, to", ", ".join(names) + ", and", last)
