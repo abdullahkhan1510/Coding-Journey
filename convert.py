@@ -7,9 +7,5 @@ def convert(temp):
     fah = fah + 32
     return fah
 
-
-
-
-
 if __name__ == "__main__":
     main()
