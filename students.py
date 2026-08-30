@@ -1,10 +1,12 @@
+import csv
+
 students = []
 with open("names.csv", "r") as file:
-    for line in file:
-        name, house = line.rstrip().split(",")
-        student = {"name": name, "house": house}
+    reader = csv.reader(file)
+    for row in reader:
+        students.append({"name": row[0], "house": row[1]})
+def get_name(student):
+    return student["name"]
 
-        students.append(student)
-
-for student in sorted(students, key = lambda student: student["name"]):
+for student in sorted(students, key = get_name):
     print(f"{student['name']} is in {student['house']}")
