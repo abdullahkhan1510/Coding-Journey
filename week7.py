@@ -1,9 +1,4 @@
-import re
+url = input("URL: ").strip()
 
-name = input("What's your name?").strip()
-matches = re.search(r"^(.+), ?(.+)$",name)
-if matches:
-    last = matches.group(1)
-    first = matches.group(2)
-    name = f"{first} {last}"
-print(name)
+username = url.replace("https://twitter.com/", "")
+print(f"Username: {username}")
