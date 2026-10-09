@@ -1,7 +1,4 @@
 import re
-email = input("What's your email?").strip()
 
-if re.search(r"^\w+@(\w+\.)?\w+\.edu$", email, re.IGNORECASE):
-    print("Valid")
-else:
-    print("Invalid")
+name = input("What's your name?").strip()
+re.search(r"^.+, .+$")
