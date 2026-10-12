@@ -1,7 +1,12 @@
-numbers = [10,12,14,16,20,24,34,48]
-target = 32
+import random
+def aa():
+    numbers = [None] * 6
+    for i in range(len(numbers)):
+        numbers[i] = random.randint(1,20)
+    target = random.randint(1,20)
+    return numbers,target
 
-def linearSearch(target):
+def linearSearch(numbers,target):
     for i in range(len(numbers)):
         if target == numbers[i]:
             return f"Target found at index {i}"
@@ -10,4 +15,5 @@ def linearSearch(target):
         else:
             pass
 
-print(linearSearch(target))
+numbers,target = aa()
+print(linearSearch(numbers,target))
