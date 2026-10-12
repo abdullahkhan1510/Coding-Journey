@@ -1,47 +1,35 @@
-while True:
-    shape = input("Enter shape to draw: ").lower()   
-    if shape == "triangle":
-        break
-    elif shape == "square":
-        break
-    else:
-        print("Invalid input. Try again.")
-        pass
-while True: 
-    desc = input("Filled or unfilled? ").lower()
-    if desc == "filled":
-        break
-    elif desc == "unfilled":
-        break
-    else: 
-        print("Invalid input. Try again.")
-while True:
-    size = int(input("Size: "))
-    if not (size >= 1 and size <= 100):
-        print("Invalid input. Try again.")
-    else:
-        print("")
-        break
+stack = [None] * 5
+top = -1
 
-symbol = "*"
-for i in range(size):
-    if shape == "square":
-        if desc == "filled":
-            print(symbol*size)
-        else:
-            if i == 1:
-                print(symbol*size)
-            elif i == size-1:
-                print(symbol*size)
-            else:
-                print("*" + " " * (size - 2) + "*")
+
+def push(item):
+    global top
+    if top == 4:
+        print("Stack is full")
     else:
-        if desc == "filled":
-            print(symbol*(i+1))
-        else:
-            if i == 0:
-                print("*")
-            elif i == size - 1:
-                print("*" * size)
-            else:
-              print("*" + " " * (i - 1) + "*")
+        top = top+1
+        stack[top] = item
+
+def peek():
+    if top == -1:
+        print("Stack is empty")
+    else:
+        return stack[top]
+
+def pop():
+    global top
+    if top == -1:
+        print("Stack is empty")
+    else:
+        item = stack[top]
+        stack[top] = None
+        top = top-1
+        return item
+push(5)
+push(10)
+push(15)
+push(20)
+push(25)
+print(pop())
+print(pop())
+print(peek())
