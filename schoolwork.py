@@ -1,35 +1,13 @@
-stack = [None] * 5
-top = -1
+numbers = [10,12,14,16,20,24,34,48]
+target = 32
 
+def linearSearch(target):
+    for i in range(len(numbers)):
+        if target == numbers[i]:
+            return f"Target found at index {i}"
+        elif i == (len(numbers)-1):
+            return "Target not found"
+        else:
+            pass
 
-def push(item):
-    global top
-    if top == 4:
-        print("Stack is full")
-    else:
-        top = top+1
-        stack[top] = item
-
-def peek():
-    if top == -1:
-        print("Stack is empty")
-    else:
-        return stack[top]
-
-def pop():
-    global top
-    if top == -1:
-        print("Stack is empty")
-    else:
-        item = stack[top]
-        stack[top] = None
-        top = top-1
-        return item
-push(5)
-push(10)
-push(15)
-push(20)
-push(25)
-print(pop())
-print(pop())
-print(peek())
+print(linearSearch(target))
