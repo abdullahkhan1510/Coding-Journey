@@ -1,19 +1,18 @@
-import random
-def aa():
-    numbers = [None] * 6
-    for i in range(len(numbers)):
-        numbers[i] = random.randint(1,20)
-    target = random.randint(1,20)
-    return numbers,target
+numbers = [3, 7, 11, 15, 19, 23, 27, 31, 35]
+target = 23
 
-def linearSearch(numbers,target):
-    for i in range(len(numbers)):
-        if target == numbers[i]:
-            return f"Target found at index {i}"
-        elif i == (len(numbers)-1):
-            return "Target not found"
-        else:
-            pass
-
-numbers,target = aa()
-print(linearSearch(numbers,target))
+def binarySearch(numbers,target):
+    right = len(numbers)-1
+    left = 0
+    while left<=right:
+        mid = (right+left) // 2
+        if numbers[mid] > target:
+            right = mid-1
+        elif numbers[mid] < target:
+            left = mid+1
+        elif numbers[mid] == target:
+            return mid
+    return -1
+print("Starting binary search...")
+print("Result:", binarySearch(numbers, target))
+print("Program finished!")
