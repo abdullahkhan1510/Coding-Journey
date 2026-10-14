@@ -1,18 +1,15 @@
-numbers = [3, 7, 11, 15, 19, 23, 27, 31, 35]
-target = 23
-
-def binarySearch(numbers,target): # zemlyaaaa ya maa ya maaa ya maaa maaa ya maaa
-    right = len(numbers)-1
-    left = 0
-    while left<=right:
-        mid = (right+left) // 2
-        if numbers[mid] > target:
-            right = mid-1
-        elif numbers[mid] < target:
-            left = mid+1
-        elif numbers[mid] == target:
-            return mid
-    return -1
-print("Starting binary search...")
-print("Result:", binarySearch(numbers, target))
-print("Program finished!")
+message = input("Message: ")
+highestcount = 0
+mostletter = ""
+for letter in message:
+    count = 0
+    for character in message:
+        if letter == character:
+            count = count+1
+    if count > highestcount:
+        highestcount = count
+        mostletter = letter
+    value = ord(letter)
+    if highestcount == count and value < ord(mostletter):
+        mostletter = letter
+print(f"{mostletter} {highestcount}")
