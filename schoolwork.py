@@ -1,7 +1,7 @@
 numbers = [3, 7, 11, 15, 19, 23, 27, 31, 35]
 target = 23
 
-def binarySearch(numbers,target):
+def binarySearch(numbers,target): # zemlyaaaa ya maa ya maaa ya maaa maaa ya maaa
     right = len(numbers)-1
     left = 0
     while left<=right:
