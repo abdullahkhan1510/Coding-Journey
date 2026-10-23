@@ -1,14 +1,13 @@
-import re
-import sys
+import validators
 
 
 def main():
-    print(count(input("Text: ")))
+    email = input("What's your email? ")
 
-
-def count(s):
-    matches = re.findall(r"\bum\b", s, re.IGNORECASE)
-    return len(matches)
+    if validators.email(email):
+        print("Valid")
+    else:
+        print("Invalid")
 
 
 if __name__ == "__main__":
