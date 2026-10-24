@@ -1,13 +1,13 @@
-import validators
+import re
 
 
 def main():
-    email = input("What's your email? ")
+    print(extract(input("Text: ")))
 
-    if validators.email(email):
-        print("Valid")
-    else:
-        print("Invalid")
+
+def extract(s):
+    matches = re.findall(r"[0-9]{2}/[0-9]{2}/[0-9]{4}", s)
+    return matches
 
 
 if __name__ == "__main__":
