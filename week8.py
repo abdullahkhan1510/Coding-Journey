@@ -1,6 +1,6 @@
 def main():
-    name,house = get_student()
-    print(f"{name} is in {house}")
+    student = get_student()
+    print(f"{student[0]} is in {student[1]}")
 
 def get_student():
     return input("Name: "), input("House: ")
