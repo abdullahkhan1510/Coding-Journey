@@ -5,7 +5,7 @@ def main():
     print(f"{student[0]} is in {student[1]}")
 
 def get_student():
-    return input("Name: "), input("House: ")
+    return [input("Name: "), input("House: ")]
 
 if __name__ == "__main__":
     main()
