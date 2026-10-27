@@ -1,11 +1,12 @@
 def main():
     student = get_student()
-    if student [0] == "Padma":
-        student[1] = "Ravenclaw"
-    print(f"{student[0]} is in {student[1]}")
+    print(f"{student['name']} is in {student['house']}")
 
 def get_student():
-    return [input("Name: "), input("House: ")]
+    student = {}
+    student["name"] = input("Name: ")
+    student["house"] = input("House: ")
+    return student
 
 if __name__ == "__main__":
     main()
