@@ -6,6 +6,12 @@ class Student:
             raise ValueError("Invalid house")
         self.name = name
         self.house = house
+    #Getter
+    def house(self):
+        return self.house
+    #Setter
+    def house(self,house):
+        self.house = house
 
 def main():
     student = get_student()
