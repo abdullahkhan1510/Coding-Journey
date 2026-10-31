@@ -1,28 +1,11 @@
-class Student:
-    def __init__(self,name,house):
-        if not name:
-            raise ValueError("Missing name")
-        if house not in["Hufflepuff", "Slytherin", "Ravenclaw", "Gryffindor"]:
-            raise ValueError("Invalid house")
-        self.name = name
-        self.house = house
-    @property
-    def house(self):
-        return self.house
-    @house.setter
-    def house(self,house):
-        if house not in ["Gryffindor","Hufflepuff","Slytherin","Ravenclaw"]:
-            raise ValueError("Invalid house")
-        else: 
-            self.house = house
+import random
+class Hat:
+    def __init__(self):
+        self.houses = ["Gryffindor","Hufflepuff","Slytherin","Ravenclaw"]
+    def sort(self,name):
+        house = random.choice(self.houses)
+        print(name, "is in", house)
 
-def main():
-    student = get_student()
-    print(f"{student.name} is in {student.house}")
-def get_student():
-    name = input("Name: ")
-    house = input("House: ")
-    student = Student(name,house)
-    return student
-if __name__ == "__main__":
-    main()
+
+hat = Hat()
+hat.sort("Harry")
