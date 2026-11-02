@@ -1,24 +1,21 @@
-def enqueue(queue, item):
-    queue.append(item)
 
+import random
 
-def dequeue(queue):
-    if len(queue) > 0:
-        return queue.pop(0)
-    return None
+number = random.randint(1, 20)
+attempts = 0
 
+while True:
+    try:
+        guess = int(input("Guess a number (1-20): "))
+        attempts += 1
 
-def main():
-    queue = []
+        if guess == number:
+            print(f"Correct! You took {attempts} attempts.")
+            break
+        elif guess < number:
+            print("Too low!")
+        else:
+            print("Too high!")
 
-    enqueue(queue, "Alice")
-    enqueue(queue, "Bob")
-    enqueue(queue, "Charlie")
-
-    print(queue)
-    print(dequeue(queue))
-    print(queue)
-
-
-if __name__ == "__main__":
-    main()
+    except ValueError:
+        print("Invalid input! Enter a whole number.")
