@@ -1,0 +1,8 @@
+
+{
+  "sites": [
+    {"name": "Shackleton", "sunlight": 12, "earth": true},
+    {"name": "Malapert", "sunlight": 7, "earth": false},
+    {"name": "Nobile", "sunlight": 10, "earth": true}
+  ]
+}

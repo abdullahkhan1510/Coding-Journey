@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a1020">
+  <title>Lunar Field Guide | Landing Sites</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #080d19;
+      color: #f3f5fc;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 82% 10%, rgba(86, 108, 183, 0.18), transparent 34rem),
+        radial-gradient(ellipse at 8% 85%, rgba(55, 126, 139, 0.12), transparent 30rem),
+        #080d19;
+    }
+
+    .page-shell { width: min(1080px, calc(100% - 40px)); margin: 0 auto; padding: 38px 0 56px; }
+    .topline { display: flex; align-items: center; gap: 10px; color: #aab4ca; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+    .topline-mark { color: #f1c979; font-size: 1.1rem; }
+    header { margin: 64px 0 38px; max-width: 720px; }
+    .eyebrow { color: #a9b5d3; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+    h1 { margin: 12px 0 14px; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 0.98; letter-spacing: -0.065em; }
+    h1 span { color: #f1c979; }
+    .intro { max-width: 590px; margin: 0; color: #aab4ca; font-size: 1.05rem; line-height: 1.75; }
+
+    .explorer { display: grid; grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.6fr); overflow: hidden; border: 1px solid rgba(184, 197, 226, 0.16); border-radius: 22px; background: rgba(15, 23, 41, 0.88); box-shadow: 0 28px 90px rgba(0, 0, 0, 0.32); }
+    .site-picker { padding: 30px; border-right: 1px solid rgba(184, 197, 226, 0.13); background: rgba(255, 255, 255, 0.018); }
+    label { display: block; margin-bottom: 12px; color: #b7c1d6; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; }
+    select { width: 100%; padding: 15px 42px 15px 14px; border: 1px solid #394663; border-radius: 12px; outline: none; background: #111b30; color: #f4f6fb; font: inherit; font-size: 1rem; cursor: pointer; }
+    select:focus-visible { border-color: #f1c979; box-shadow: 0 0 0 3px rgba(241, 201, 121, 0.2); }
+    .picker-hint { margin: 14px 0 0; color: #7f8ba6; font-size: 0.87rem; line-height: 1.6; }
+    .site-index { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(184, 197, 226, 0.13); color: #8793ad; font-size: 0.8rem; line-height: 1.7; }
+
+    .site-details { padding: 34px clamp(24px, 5vw, 56px) 38px; }
+    .site-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; }
+    .site-heading h2 { margin: 5px 0 8px; font-size: clamp(1.7rem, 4vw, 2.45rem); letter-spacing: -0.045em; }
+    .coordinates { margin: 0; color: #8e9bb6; font-size: 0.92rem; }
+    .badge { flex: 0 0 auto; padding: 8px 11px; border: 1px solid rgba(125, 218, 183, 0.28); border-radius: 999px; background: rgba(65, 158, 127, 0.1); color: #8ce0c0; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+    .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
+    .metric { min-height: 180px; padding: 22px; border: 1px solid rgba(184, 197, 226, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.025); }
+    .metric-label { display: flex; align-items: center; gap: 9px; color: #aab4ca; font-size: 0.79rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .metric-icon { font-size: 1.04rem; }
+    .metric-value { display: block; margin: 16px 0 6px; color: #fff; font-size: clamp(2rem, 5vw, 3rem); font-weight: 650; letter-spacing: -0.06em; line-height: 1; }
+    .metric-note { color: #8e9bb6; font-size: 0.85rem; line-height: 1.5; }
+    .meter { height: 5px; margin-top: 16px; overflow: hidden; border-radius: 99px; background: #29344b; }
+    .meter-fill { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #edb85e, #ffe59a); transition: width 350ms ease; }
+    .earth-meter .meter-fill { background: linear-gradient(90deg, #58b8cb, #9ce7de); }
+    .site-description { margin: 24px 0 0; color: #aab4ca; font-size: 0.94rem; line-height: 1.75; }
+    .footnote { margin: 20px 2px 0; color: #77839b; font-size: 0.78rem; line-height: 1.6; }
+    footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 24px; color: #727e97; font-size: 0.78rem; }
+
+    @media (max-width: 700px) {
+      .page-shell { width: min(100% - 28px, 560px); padding-top: 24px; }
+      header { margin: 48px 0 28px; }
+      .explorer { grid-template-columns: 1fr; }
+      .site-picker { padding: 24px; border-right: 0; border-bottom: 1px solid rgba(184, 197, 226, 0.13); }
+      .site-index { display: none; }
+      .site-details { padding: 26px 22px 28px; }
+      .metrics { gap: 10px; }
+      .metric { min-height: 168px; padding: 17px; }
+      .badge { font-size: 0.63rem; }
+      footer { flex-direction: column; }
+    }
+
+    @media (max-width: 390px) {
+      .metrics { grid-template-columns: 1fr; }
+      .metric { min-height: 145px; }
+      .site-heading { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <div class="topline"><span class="topline-mark" aria-hidden="true">✦</span> Lunar field guide <span aria-hidden="true">/</span> mission planning</div>
+
+    <header>
+      <div class="eyebrow">Choose a place to explore</div>
+      <h1>Somewhere on<br>the <span>Moon.</span></h1>
+      <p class="intro">Compare sunlight and Earth visibility at a few imagined lunar landing sites. Pick a location to see what the sky might look like from the surface.</p>
+    </header>
+
+    <section class="explorer" aria-label="Lunar landing-site explorer">
+      <div class="site-picker">
+        <label for="site-select">Landing site</label>
+        <select id="site-select" aria-controls="site-details">
+          <option value="silver-basin">Silver Basin</option>
+          <option value="cinder-ridge">Cinder Ridge</option>
+          <option value="glass-harbor">Glass Harbor</option>
+          <option value="blue-lantern">Blue Lantern Plateau</option>
+        </select>
+        <p class="picker-hint">Each site has a different horizon, light cycle, and view back toward Earth.</p>
+        <div class="site-index">FIELD NOTE 01<br>All locations and readings on this page are fictional.</div>
+      </div>
+
+      <div class="site-details" id="site-details" aria-live="polite" aria-atomic="true">
+        <div class="site-heading">
+          <div>
+            <div class="eyebrow">Selected location</div>
+            <h2 id="site-name">Silver Basin</h2>
+            <p class="coordinates" id="site-coordinates">12.4° N &nbsp;·&nbsp; 28.1° E</p>
+          </div>
+          <span class="badge">Fictional site</span>
+        </div>
+
+        <div class="metrics">
+          <article class="metric">
+            <div class="metric-label"><span class="metric-icon" aria-hidden="true">☼</span> Sunlight</div>
+            <strong class="metric-value"><span id="sun-hours">312</span><span style="font-size: 0.48em; letter-spacing: 0"> hrs</span></strong>
+            <div class="metric-note">of sunlight per lunar day</div>
+            <div class="meter" role="meter" aria-label="Sunlight hours in a lunar day" aria-valuemin="0" aria-valuemax="354" aria-valuenow="312"><div class="meter-fill" id="sun-meter"></div></div>
+          </article>
+          <article class="metric">
+            <div class="metric-label"><span class="metric-icon" aria-hidden="true">◉</span> Earth visibility</div>
+            <strong class="metric-value"><span id="earth-percent">96</span><span style="font-size: 0.48em; letter-spacing: 0">%</span></strong>
+            <div class="metric-note" id="earth-note">Earth visible for most of the lunar day</div>
+            <div class="meter earth-meter" role="meter" aria-label="Percent of the lunar day Earth is visible" aria-valuemin="0" aria-valuemax="100" aria-valuenow="96"><div class="meter-fill" id="earth-meter"></div></div>
+          </article>
+        </div>
+
+        <p class="site-description" id="site-description">A broad, open plain with a long view across the horizon. The high sunlight estimate makes this a bright, energy-rich outpost.</p>
+        <p class="footnote">A lunar day is about 29.5 Earth days. Values are made up for this demo and are not real mission-planning data.</p>
+      </div>
+    </section>
+
+    <footer><span>MOON SURFACE OBSERVATORY · CONCEPT DEMO</span><span>Designed for curious explorers</span></footer>
+  </main>
+
+  <script>
+    // Fictional sample readings used by the site selector.
+    const landingSites = {
+      "silver-basin": {
+        name: "Silver Basin",
+        coordinates: "12.4° N · 28.1° E",
+        sunlightHours: 312,
+        earthVisibility: 96,
+        earthNote: "Earth visible for most of the lunar day",
+        description: "A broad, open plain with a long view across the horizon. The high sunlight estimate makes this a bright, energy-rich outpost."
+      },
+      "cinder-ridge": {
+        name: "Cinder Ridge",
+        coordinates: "7.8° S · 41.6° E",
+        sunlightHours: 228,
+        earthVisibility: 71,
+        earthNote: "Earth visible for much of the lunar day",
+        description: "A rugged ridge with a more broken horizon. Its lower sunlight total leaves longer stretches in shadow, while Earth remains in view much of the time."
+      },
+      "glass-harbor": {
+        name: "Glass Harbor",
+        coordinates: "22.1° N · 63.7° W",
+        sunlightHours: 354,
+        earthVisibility: 18,
+        earthNote: "Earth visible only briefly",
+        description: "A sunlit basin with an unusually open sky toward the Sun, but a high rim blocks most of the view back to Earth."
+      },
+      "blue-lantern": {
+        name: "Blue Lantern Plateau",
+        coordinates: "3.6° S · 12.9° W",
+        sunlightHours: 276,
+        earthVisibility: 100,
+        earthNote: "Earth visible all day in this estimate",
+        description: "A gently sloping plateau with a clear line of sight toward Earth. Its light and shadow are more balanced across the lunar day."
+      }
+    };
+
+    const siteSelect = document.querySelector("#site-select");
+
+    function displaySite(siteId) {
+      const site = landingSites[siteId];
+      document.querySelector("#site-name").textContent = site.name;
+      document.querySelector("#site-coordinates").textContent = site.coordinates;
+      document.querySelector("#sun-hours").textContent = site.sunlightHours;
+      document.querySelector("#earth-percent").textContent = site.earthVisibility;
+      document.querySelector("#earth-note").textContent = site.earthNote;
+      document.querySelector("#site-description").textContent = site.description;
+      document.querySelector("#sun-meter").style.width = `${(site.sunlightHours / 354) * 100}%`;
+      document.querySelector("#earth-meter").style.width = `${site.earthVisibility}%`;
+      document.querySelectorAll('[role="meter"]')[0].setAttribute("aria-valuenow", site.sunlightHours);
+      document.querySelectorAll('[role="meter"]')[1].setAttribute("aria-valuenow", site.earthVisibility);
+    }
+
+    siteSelect.addEventListener("change", (event) => displaySite(event.target.value));
+    displaySite(siteSelect.value);
+  </script>
+</body>
+</html>
