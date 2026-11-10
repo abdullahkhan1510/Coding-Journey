@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101510">
+  <title>Legends XI — Football Draft</title>
+  <style>
+    :root{color-scheme:dark;--bg:#101510;--panel:#192019;--panel2:#202a20;--line:#344033;--text:#f4f4e9;--muted:#a9b2a1;--lime:#c8f169;--gold:#e4c47a;--red:#f47777;--shadow:0 18px 50px #0005;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -15%,#35432d 0,transparent 42%),var(--bg);color:var(--text);min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--lime);outline-offset:2px}.wrap{max-width:1280px;margin:auto;padding:28px 30px 60px}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:44px}.brand{display:flex;gap:12px;align-items:center;font-weight:850;letter-spacing:.08em}.brandmark{width:37px;height:37px;border:1px solid #71825b;border-radius:12px;display:grid;place-items:center;color:var(--lime);font-size:20px}.season-label,.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:750}.pill{border:1px solid var(--line);border-radius:999px;padding:8px 13px;color:var(--muted);font-size:12px}.hero{max-width:730px;margin:0 0 34px}.eyebrow{color:var(--lime);margin-bottom:13px}.hero h1{font-size:clamp(38px,6vw,68px);line-height:.98;letter-spacing:-.055em;margin:0 0 18px}.hero h1 span{color:var(--lime)}.hero p{color:var(--muted);font-size:16px;line-height:1.6;margin:0;max-width:600px}.panel{background:linear-gradient(145deg,#1b241c,#171e18);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.setup{padding:25px}.section-title{font-size:17px;font-weight:800;margin:0 0 5px}.sub{color:var(--muted);font-size:13px;margin:0 0 20px}.categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:23px}.category{min-height:86px;text-align:left;background:#182019;border:1px solid #344033;border-radius:14px;padding:13px;color:var(--text);transition:.16s}.category:hover{border-color:#71825b;transform:translateY(-1px)}.category.selected{border-color:var(--lime);background:#283322;box-shadow:inset 0 0 0 1px #c8f16944}.cat-icon{font-size:19px;margin-bottom:8px}.cat-name{font-weight:800;font-size:13px}.cat-count{font-size:11px;color:var(--muted);margin-top:4px}.fields{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px}.field label{display:block;color:var(--muted);font-size:12px;font-weight:700;margin-bottom:7px}.field input,.field select,.search{width:100%;height:43px;border:1px solid var(--line);border-radius:10px;background:#111711;color:var(--text);padding:0 12px}.names{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.hint{color:var(--muted);font-size:12px;margin:12px 0 0}.notice{display:none;margin-top:15px;border-radius:10px;background:#3a2a19;color:#f0d39a;padding:11px 13px;font-size:13px;line-height:1.45}.actions{display:flex;align-items:center;gap:12px;margin-top:21px}.primary,.secondary,.pick{border:0;border-radius:10px;background:var(--lime);color:#182014;font-weight:850;padding:13px 20px;transition:.15s}.primary:hover,.pick:hover{filter:brightness(1.07);transform:translateY(-1px)}.secondary{background:#293329;border:1px solid var(--line);color:var(--text)}.secondary:hover{border-color:#7c8a6c}.hidden{display:none!important}.gamehead{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:18px}.gamehead h2{margin:5px 0 0;font-size:30px;letter-spacing:-.03em}.turnbox{border:1px solid var(--line);background:#172018;border-radius:12px;padding:11px 15px;text-align:right}.turnbox strong{display:block;color:var(--lime);font-size:15px}.turnbox span{font-size:11px;color:var(--muted)}.columns{display:grid;grid-template-columns:minmax(0,1fr) 315px;gap:18px}.pool{padding:18px}.poolbar{display:flex;align-items:center;gap:12px;margin-bottom:14px}.poolbar .search{max-width:350px}.poolbar .count{margin-left:auto;color:var(--muted);font-size:12px;white-space:nowrap}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-height:690px;overflow:auto;padding-right:3px}.player-card{background:#202920;border:1px solid #374235;border-radius:13px;padding:13px;min-width:0}.cardtop{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.rating{font-size:25px;line-height:1;color:var(--lime);font-weight:900;letter-spacing:-.06em}.pos{font-size:10px;color:#d4dfcb;border:1px solid #50604b;border-radius:6px;padding:4px 6px;font-weight:800}.player-name{font-size:15px;font-weight:850;margin:10px 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.player-meta{color:var(--muted);font-size:11px;height:30px}.card-controls{display:flex;gap:6px;margin-top:10px}.card-controls select{min-width:0;flex:1;background:#151c15;color:var(--text);border:1px solid #394536;border-radius:7px;padding:0 5px;font-size:11px}.pick{padding:8px 10px;font-size:11px;white-space:nowrap;border-radius:7px}.pick:disabled{background:#3a4438;color:#899184;cursor:not-allowed;transform:none}.squad-panel{padding:17px;align-self:start;position:sticky;top:15px}.squad-title{display:flex;justify-content:space-between;align-items:center;font-weight:850;margin-bottom:13px}.team-block{padding:12px;background:#202920;border:1px solid #344033;border-radius:11px;margin-bottom:9px}.team-head{display:flex;justify-content:space-between;gap:8px;align-items:center;font-weight:800;font-size:13px}.team-head em{font-size:11px;color:var(--lime);font-style:normal}.slots{margin-top:9px;display:grid;gap:5px}.slot{color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:7px;border-top:1px solid #354034;padding-top:5px}.slot b{color:#e7ecdF;font-weight:600;text-align:right}.slot.empty{opacity:.55}.progress{height:5px;background:#111711;border-radius:10px;overflow:hidden;margin-top:9px}.progress i{display:block;height:100%;background:var(--lime);border-radius:10px;transition:width .25s}.results{padding:22px}.result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:17px 0}.result-card{background:#202920;border:1px solid var(--line);border-radius:14px;padding:16px}.result-card h3{margin:0 0 12px;font-size:14px}.winner{color:var(--lime);font-size:20px;font-weight:900}.result-card p{color:var(--muted);font-size:12px;line-height:1.5;margin:8px 0 0}.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{text-align:left;padding:10px;border-bottom:1px solid #344033}.table th{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}.table td:not(:first-child),.table th:not(:first-child){text-align:right}.champion{color:var(--lime);font-weight:800}.footer{color:#788274;font-size:11px;margin-top:27px;line-height:1.5}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#eef6e6;color:#11170f;border-radius:9px;padding:11px 16px;font-weight:750;font-size:13px;box-shadow:var(--shadow);z-index:5;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
+    .shape-board{min-height:250px;padding:12px 8px;border:1px solid #71825b;border-radius:12px;background:repeating-linear-gradient(0deg,#426b3b,#426b3b 24px,#487441 24px,#487441 48px);display:flex;flex-direction:column;justify-content:space-around;position:relative;overflow:hidden}.shape-board:before{content:"";position:absolute;inset:10px 8px;border:1px solid #ffffff48;border-radius:7px;pointer-events:none}.shape-row{display:flex;align-items:center;justify-content:space-evenly;gap:3px;position:relative;z-index:1}.shape-player{width:63px;max-width:22%;text-align:center;min-height:45px;padding:4px 2px;background:#172318eF;border:1px solid #d5ef9e88;border-radius:8px;box-shadow:0 3px 8px #0005;font-size:9px;overflow:hidden}.shape-player .shape-pos{color:var(--lime);font-weight:900;font-size:9px}.shape-player .shape-name{display:block;color:white;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}.shape-player.empty{opacity:.68}.team-block .slots{max-height:180px;overflow:auto}.team-block .shape-board{margin-top:10px}.player-rank{display:grid;grid-template-columns:30px minmax(0,1fr) repeat(4,58px);gap:8px;align-items:center;padding:9px 5px;border-bottom:1px solid var(--line);font-size:12px}.player-rank.head{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.player-rank .name{font-weight:750;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.player-rank span:nth-last-child(-n+4){text-align:right}.team-award{border:1px solid #63724e;background:#273321;border-radius:12px;padding:15px;margin:12px 0}.team-award strong{color:var(--lime)}
+    .match-broadcast{position:fixed;inset:0;z-index:20;background:radial-gradient(ellipse at 50% 45%,#29462e 0,#101510 72%);display:grid;place-items:center;padding:26px}.match-broadcast.hidden{display:none}.broadcast-panel{width:min(1250px,97vw);height:min(900px,94vh);border:1px solid #667652;border-radius:24px;padding:clamp(18px,3vw,40px);background:linear-gradient(145deg,#17221beF,#101510f5);box-shadow:0 30px 100px #000a;display:flex;flex-direction:column;gap:15px}.broadcast-top,.broadcast-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px}.broadcast-clock{font-size:30px;font-weight:900;color:var(--lime);font-variant-numeric:tabular-nums}.clock-group{text-align:right}.broadcast-half{display:block;color:#d4dfcb;font-size:10px;font-weight:850;letter-spacing:.14em}.broadcast-clockbar{height:7px;flex:none;border-radius:8px;background:#303a2d;overflow:hidden}.broadcast-clockbar i{display:block;height:100%;width:0;background:var(--lime);transition:width .7s linear}.live-match-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,390px),1fr));grid-auto-rows:minmax(230px,1fr);gap:12px;overflow:auto;padding:3px}.live-match-card{min-height:230px;display:grid;grid-template-rows:auto 1fr auto;gap:12px;padding:16px;border:1px solid #526147;border-radius:17px;background:linear-gradient(150deg,#263323,#192219);box-shadow:inset 0 1px #ffffff12}.live-match-meta{display:flex;justify-content:space-between;gap:8px;color:#c2d2b5;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.1em}.live-match-teams{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;text-align:center}.live-team{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0;font-weight:850;font-size:clamp(13px,1.4vw,17px)}.live-team span:last-child{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.live-team .club-crest{width:39px;height:45px}.live-score{font-size:clamp(30px,4vw,46px);font-weight:950;font-variant-numeric:tabular-nums;letter-spacing:-.05em;white-space:nowrap}.live-events{min-height:54px;max-height:90px;overflow:auto;display:flex;flex-wrap:wrap;align-content:flex-start;gap:6px;border-top:1px solid #44523c;padding-top:10px;color:#e5e9dd;font-size:11px}.live-event{padding:5px 8px;border-radius:7px;background:#11180f}.live-event.goal{color:#17200f;background:var(--lime);font-weight:850}.broadcast-bottom{flex:none;color:var(--muted);font-size:13px}.speed-control{min-width:125px}.speed-control label{margin-bottom:4px}.speed-control select{height:40px;border:1px solid var(--line);border-radius:9px;background:#111711;color:var(--text);padding:0 9px}.confetti-layer{position:fixed;inset:0;z-index:30;pointer-events:none;overflow:hidden}.confetti-layer.hidden{display:none}.confetti-piece{position:absolute;top:-15px;width:9px;height:16px;animation:confettiFall var(--fall) linear var(--delay) forwards;left:var(--left);background:var(--color);transform:rotate(var(--rotate));border-radius:2px}@keyframes confettiFall{to{top:110vh;transform:translateX(var(--drift)) rotate(900deg)}}
+    @media(max-width:900px){.categories{grid-template-columns:repeat(3,1fr)}.columns{grid-template-columns:1fr}.squad-panel{position:static}.squad-panel .teams{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.team-block{margin:0}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){.wrap{padding:18px 14px 40px}.topbar{margin-bottom:32px}.categories{grid-template-columns:repeat(2,1fr)}.fields{grid-template-columns:1fr}.names{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}.gamehead{align-items:flex-start;flex-direction:column}.turnbox{text-align:left}.result-grid{grid-template-columns:1fr}.poolbar{flex-wrap:wrap}.poolbar .search{max-width:none;flex-basis:100%}.poolbar .count{margin-left:0}.squad-panel .teams{grid-template-columns:1fr}}
+    @media(max-width:600px){.match-broadcast{padding:6px}.broadcast-panel{width:100%;height:96vh;border-radius:14px;padding:14px 10px;gap:9px}.live-match-grid{grid-template-columns:1fr;grid-auto-rows:minmax(175px,auto);gap:8px}.live-match-card{min-height:175px;padding:10px;gap:7px}.live-team .club-crest{width:30px;height:35px}.broadcast-bottom{align-items:flex-start;flex-direction:column}.broadcast-bottom .actions{width:100%;flex-wrap:wrap}.broadcast-bottom button{padding:9px}.speed-control{min-width:110px}.broadcast-clock{font-size:23px}}
+    /* Draft view: large formation pitch, compact historical-team pick list. */
+    @media(min-width:901px){#game .columns{grid-template-columns:minmax(0,7fr) minmax(270px,3fr);grid-template-areas:"squad pool";align-items:stretch;gap:14px}#game .squad-panel{grid-area:squad;position:static;padding:22px;min-height:70vh}#game .pool{grid-area:pool;padding:13px;min-width:0}#game .cards{grid-template-columns:minmax(0,1fr);max-height:calc(100vh - 260px);overflow-y:auto}#game .poolbar{display:grid;grid-template-columns:1fr;gap:8px}#game .poolbar .search{max-width:none}#game .poolbar .count{margin:0}#game .shape-board{min-height:clamp(390px,58vh,650px);padding:22px 18px}#game .shape-player{width:clamp(82px,9vw,122px);min-height:61px;padding:8px 5px;font-size:12px}#game .shape-player .shape-pos{font-size:12px}#game .shape-player .shape-name{font-size:11px}#game .team-block .slots{max-height:230px}}
+    @media(max-width:900px){#game .columns{display:flex;flex-direction:column}#game .pool{order:1}#game .squad-panel{order:2}#game .shape-board{min-height:300px}}
+  </style>
+  <style>
+    .club-crest{display:inline-block;width:29px;height:34px;flex:none;filter:drop-shadow(0 3px 4px #0007);vertical-align:middle}.club-crest.large{width:63px;height:72px}.club-crest.medium{width:43px;height:50px}.club-crest.broadcast{width:100%;height:100%;filter:drop-shadow(0 8px 14px #0008)}
+    .game-title-group{display:flex;align-items:center;gap:15px}.round-crest{width:74px;height:80px;display:grid;place-items:center;flex:none}.gamehead .eyebrow{margin-bottom:6px}.history-stamp{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 9px;border:1px solid #63724e;border-radius:999px;background:#1a2419;color:#cedbbd;font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}.club-preview{display:flex;align-items:center;gap:9px;margin-top:7px;padding:7px 9px;border:1px solid #364232;border-radius:9px;background:#151d15;color:#d9e3ce;font-size:12px;font-weight:750}.team-head{align-items:center}.team-identity{display:flex;align-items:center;gap:8px;min-width:0}.team-identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.player-clubline{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:11px}.table-club{display:inline-flex;align-items:center;gap:8px}.result-card .winner-mark{display:flex;align-items:center;gap:12px}.broadcast-score .club-badge{border:0;background:transparent;overflow:visible}.season-club-chip{display:inline-flex;align-items:center;gap:8px}.club-select-row{display:flex;align-items:center;gap:8px}
+    @media(max-width:600px){.round-crest{width:52px;height:60px}.club-crest.large{width:49px;height:57px}.game-title-group{gap:9px}.history-stamp{font-size:9px}.club-crest.medium{width:35px;height:41px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar"><div class="brand"><div class="brandmark">⚽</div><span>LEGENDS XI</span></div><div class="pill">A football draft & season simulator</div></header>
+    <section class="hero"><div class="eyebrow">Build your all-time side</div><h1>Draft the legends.<br><span>Own the season.</span></h1><p>Choose a player pool, take turns building your XI, then put your squad through a full season across four competitions.</p></section>
+    <section id="setup" class="panel setup">
+      <h2 class="section-title">Choose your draft challenge</h2><p class="sub">Pick a player pool, set up managers and formations. Every round draws a random historical club and season; each manager picks from that club’s squad.</p>
+      <div id="categories" class="categories"></div>
+      <div class="fields">
+        <div class="field"><label for="playerCount">Number of managers</label><select id="playerCount"><option value="2">2 managers</option><option value="3">3 managers</option><option value="4">4 managers</option><option value="5">5 managers</option></select></div>
+        <div class="field"><label>Draft order</label><div class="pill" style="border-radius:10px;height:43px;display:flex;align-items:center">Snake draft · order flips each round</div></div>
+        <div class="field"><label>Squad size</label><div class="pill" style="border-radius:10px;height:43px;display:flex;align-items:center">Exactly 11 players per team</div></div>
+      </div>
+      <div id="names" class="names"></div><p id="poolHint" class="hint"></p><div id="setupNotice" class="notice"></div>
+      <div class="actions"><button id="startButton" class="primary">Start the draft <span aria-hidden="true">→</span></button></div>
+    </section>
+    <section id="game" class="hidden">
+      <div class="gamehead"><div class="game-title-group"><div id="roundCrest" class="round-crest"></div><div><div id="gameEyebrow" class="eyebrow"></div><h2>Make your pick</h2></div></div><div class="turnbox"><strong id="turnLabel"></strong><span id="pickLabel"></span></div></div>
+      <div class="columns"><div class="panel pool"><div class="poolbar"><div id="roundPoolLabel" class="count"></div><input id="search" class="search" type="search" placeholder="Search this historical squad…" aria-label="Search this historical squad"><div id="availableCount" class="count"></div></div><div id="cards" class="cards"></div></div><aside class="panel squad-panel"><div class="squad-title"><span>Your XI</span><span id="draftProgress" class="season-label"></span></div><div id="teams" class="teams"></div><div class="footer">Exactly 11 picks. Ratings stay hidden until picked; only your squad is visible during your turn.</div></aside></div>
+    </section>
+    <section id="season" class="panel results hidden">
+      <div class="eyebrow">Season mode</div><h2 style="margin:0;font-size:30px">The fixtures are ready.</h2>
+      <p class="sub" style="margin-top:7px">Follow multiple drafted-club fixtures at once, with scores and scorers updating live. Choose the pace, pause, or resume anytime; other matches run in the background.</p>
+      <div class="actions"><button id="slowSim" class="primary">Slow sim full season ▶</button><button id="pauseSim" class="secondary hidden">Pause ⏸</button><div class="field speed-control"><label for="simSpeed">Time per half</label><select id="simSpeed"><option value="2">2 seconds</option><option value="4" selected>4 seconds</option><option value="8">8 seconds</option><option value="15">15 seconds</option></select></div><button id="quickSim" class="secondary">Quick sim ⚡</button><button id="nextMonth" class="hidden" aria-hidden="true" tabindex="-1"></button></div>
+      <div id="seasonProgress" class="hint"></div><div id="seasonTicker" class="result-card hidden" aria-live="polite"></div><div id="janTransfers" class="hidden"></div><div id="seasonSummary"></div>
+      <details id="fixtureDetails" class="result-card hidden"><summary style="cursor:pointer;font-weight:800">View all fixtures and results</summary><div id="fixtureLog"></div></details>
+      <div class="actions"><button id="resetGame" class="secondary">Back to draft setup</button></div>
+    </section>
+    <section id="matchBroadcast" class="match-broadcast hidden" aria-live="polite" aria-label="Live match broadcast">
+      <div class="broadcast-panel"><div class="broadcast-top"><div><div class="eyebrow">Live scores · your clubs</div><div id="broadcastStage" class="season-label"></div></div><div class="clock-group"><span id="broadcastClock" class="broadcast-clock">0′</span><span id="broadcastHalf" class="broadcast-half">1ST HALF</span></div></div><div class="broadcast-clockbar"><i id="broadcastClockBar"></i></div><div id="broadcastMatches" class="live-match-grid"></div><div class="broadcast-bottom"><span id="broadcastCommentary">Live fixture scores</span><div class="actions" style="margin:0"><label class="speed-control"><span class="season-label">Seconds / half</span><select id="broadcastSpeed"><option value="2">2</option><option value="4">4</option><option value="8">8</option><option value="15">15</option></select></label><button id="pauseBroadcast" class="secondary">Pause ⏸</button><button id="quickFinish" class="secondary">Quick sim rest ⚡</button><button id="skipBatch" class="secondary">Skip these matches →</button></div></div></div>
+    </section>
+    <div id="confettiLayer" class="confetti-layer hidden" aria-hidden="true"></div>
+    <section id="results" class="panel results hidden"></section>
+    <p class="footer">Player editions are locked to the drawn club and season. Ratings are retrospective estimates of that season’s performances and standing; season results are simulated.</p>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    // Each entry is one player identity. Season editions belong to that identity and are never separate draft picks.
+    const positionOverrides={
+      'Erling Haaland':['ST'],'Harry Kane':['ST'],'Robert Lewandowski':['ST'],'Alan Shearer':['ST'],'Gerd Müller':['ST'],'Miroslav Klose':['ST'],'Diego Milito':['ST'],'Mario Mandžukić':['ST'],'Peter Crouch':['ST'],
+      'Lionel Messi':['RW','CF','CAM'],'Cristiano Ronaldo':['LW','ST','RW'],'Thierry Henry':['ST','LW'],'Kylian Mbappé':['LW','ST','RW'],'Mohamed Salah':['RW','ST'],'Sadio Mané':['LW','ST'],'Neymar':['LW','RW'],'Gareth Bale':['RW','LW'],'Eden Hazard':['LW','RW'],'Bukayo Saka':['RW','LW'],'Riyad Mahrez':['RW'],'Arjen Robben':['RW'],'Franck Ribéry':['LW'],'David Villa':['ST','LW'],'Fernando Torres':['ST'],'Didier Drogba':['ST'],'Karim Benzema':['ST','CF'],'Wayne Rooney':['ST','CF'],'Dennis Bergkamp':['CF','CAM'],'Zlatan Ibrahimović':['ST'],'Ronaldo Nazário':['ST'],'Pelé':['ST','CF'],'Eusébio':['ST'],'George Best':['RW','LW'],'Johan Cruyff':['CF','CAM'],'Andriy Shevchenko':['ST'],'Michael Owen':['ST'],
+      'Kevin De Bruyne':['CAM','CM'],'Jude Bellingham':['CAM','CM'],'Luka Modrić':['CM'],'Toni Kroos':['CM'],'Xavi':['CM'],'Andrés Iniesta':['CM','CAM'],'Sergio Busquets':['CDM'],'Casemiro':['CDM'],'Rodri':['CDM','CM'],'Patrick Vieira':['CDM','CM'],'Roy Keane':['CDM','CM'],'Claude Makélélé':['CDM'],'Andrea Pirlo':['CM','CDM'],'Frank Lampard':['CM','CAM'],'Steven Gerrard':['CM','CAM'],'Paul Scholes':['CM','CAM'],'David Silva':['CAM','CM'],'Bernardo Silva':['CAM','RW','CM'],'İlkay Gündoğan':['CM','CAM'],'Cesc Fàbregas':['CM','CAM'],'Santi Cazorla':['CM','CAM'],'Wesley Sneijder':['CAM','CM'],'Kaká':['CAM'],'Zinedine Zidane':['CAM','CM'],'Lothar Matthäus':['CM','CDM'],'Bastian Schweinsteiger':['CM','CDM'],'Michael Carrick':['CDM','CM'],'Xabi Alonso':['CDM','CM'],'Yaya Touré':['CM','CDM'],'Ryan Giggs':['LM','LW'],'Nani':['RW','LW'],'Park Ji-sung':['LM','RM','CM'],'Robert Pirès':['LM','LW'],'Freddie Ljungberg':['RM','RW'],'Joe Cole':['CAM','RW','LW'],'Florent Malouda':['LM','LW'],'Dirk Kuyt':['RW','ST'],'Pedro':['RW','LW'],'Antoine Griezmann':['CF','ST','CAM'],'Lamine Yamal':['RW'],'Nico Williams':['LW','RW'],'Dani Olmo':['CAM','LW'],'Rivaldo':['LW','CAM'],'Ronaldinho':['LW','CAM'],'Ruud Gullit':['CAM','CM','ST'],
+      'Manuel Neuer':['GK'],'Iker Casillas':['GK'],'Petr Čech':['GK'],'Edwin van der Sar':['GK'],'Gianluigi Buffon':['GK'],'Alisson Becker':['GK'],'Ederson':['GK'],'Peter Schmeichel':['GK'],'Jens Lehmann':['GK'],'Keylor Navas':['GK'],'Unai Simón':['GK'],'Júlio César':['GK'],'David de Gea':['GK'],
+      'Dani Alves':['RB'],'Dani Carvajal':['RB'],'Kyle Walker':['RB'],'Trent Alexander-Arnold':['RB'],'Gary Neville':['RB'],'Wes Brown':['RB','CB'],'John O’Shea':['RB','CB','LB'],'Lauren':['RB'],'Branislav Ivanović':['RB','CB'],'Maicon':['RB'],
+      'Ashley Cole':['LB'],'Patrice Evra':['LB'],'Andrew Robertson':['LB'],'Marcelo':['LB'],'Roberto Carlos':['LB'],'David Alaba':['LB','CB'],'Leighton Baines':['LB'],'Raphaël Varane':['CB'],'Sergio Ramos':['CB','RB'],'Gerard Piqué':['CB'],'Carles Puyol':['CB'],'John Terry':['CB'],'Rio Ferdinand':['CB'],'Nemanja Vidić':['CB'],'Paolo Maldini':['CB','LB'],'Franz Beckenbauer':['CB','CDM'],'Virgil van Dijk':['CB'],'Rúben Dias':['CB'],'John Stones':['CB','CDM'],'Jérôme Boateng':['CB'],'Ricardo Carvalho':['CB'],'Kolo Touré':['CB'],'Sol Campbell':['CB'],'Lúcio':['CB'],'Walter Samuel':['CB'],'Cafu':['RB'],'Vincent Kompany':['CB'],'Aymeric Laporte':['CB'],'Nathan Aké':['CB','LB'],'Fabio Cannavaro':['CB']
+    };
+    const P = (name,pos,nation,club,tags,editions) => ({name,pos,positions:positionOverrides[name]||({GK:['GK'],DEF:['CB'],MID:['CM'],FWD:['ST']}[pos]),nation,club,tags:tags.split(','),editions:editions.split(';').map(s=>{const [season,rating]=s.split(':');return {season,rating:Number(rating)}})});
+    const playerEntries = [
+      P('Lionel Messi','FWD','Argentina','Barcelona / Inter Miami','TREBLE,DOUBLE,WC,EURO,UCL', '2011-12:99;2014-15:99;2018-19:98;2022-23:97;2023-24:91'),
+      P('Cristiano Ronaldo','FWD','Portugal','Real Madrid / Manchester United','TREBLE,DOUBLE,EURO,UCL,PREM','2007-08:97;2013-14:98;2015-16:99;2016-17:99;2017-18:99;2022-23:88'),
+      P('Xavi','MID','Spain','Barcelona','TREBLE,DOUBLE,WC,EURO,UCL','2008-09:96;2010-11:97;2011-12:95'),
+      P('Andrés Iniesta','MID','Spain','Barcelona','TREBLE,DOUBLE,WC,EURO,UCL','2008-09:94;2010-11:96;2011-12:95'),
+      P('Sergio Busquets','MID','Spain','Barcelona','TREBLE,DOUBLE,WC,EURO,UCL','2008-09:91;2010-11:93;2014-15:92'),
+      P('Gerard Piqué','DEF','Spain','Barcelona','TREBLE,DOUBLE,WC,EURO,UCL','2008-09:91;2010-11:93;2014-15:91'),
+      P('Dani Alves','DEF','Brazil','Barcelona / Juventus','TREBLE,DOUBLE,UCL','2008-09:92;2014-15:94;2016-17:91;2021-22:84'),
+      P('Samuel Eto’o','FWD','Cameroon','Barcelona / Inter','TREBLE,DOUBLE,UCL','2008-09:94;2009-10:93;2010-11:92'),
+      P('Thierry Henry','FWD','France','Arsenal / Barcelona','TREBLE,DOUBLE,WC,EURO,UCL,PREM','2003-04:96;2005-06:94;2008-09:91'),
+      P('Ronaldinho','FWD','Brazil','Barcelona / AC Milan','DOUBLE,WC,UCL','2004-05:95;2005-06:96;2006-07:92'),
+      P('Neymar','FWD','Brazil','Barcelona / PSG','TREBLE,DOUBLE,UCL','2014-15:95;2015-16:94;2017-18:94;2022-23:86'),
+      P('Luis Suárez','FWD','Uruguay','Barcelona / Liverpool','TREBLE,DOUBLE,UCL,PREM','2013-14:95;2015-16:97;2018-19:93;2022-23:85'),
+      P('Sergio Ramos','DEF','Spain','Real Madrid','DOUBLE,WC,EURO,UCL','2013-14:93;2016-17:94;2017-18:94'),
+      P('Karim Benzema','FWD','France','Real Madrid','DOUBLE,UCL','2021-22:98;2022-23:94;2019-20:93'),
+      P('Luka Modrić','MID','Croatia','Real Madrid','DOUBLE,UCL','2016-17:95;2017-18:96;2021-22:94'),
+      P('Toni Kroos','MID','Germany','Real Madrid / Bayern','DOUBLE,WC,UCL','2013-14:93;2016-17:94;2017-18:94'),
+      P('Casemiro','MID','Brazil','Real Madrid / Manchester United','DOUBLE,UCL,PREM','2016-17:92;2017-18:93;2021-22:92'),
+      P('Marcelo','DEF','Brazil','Real Madrid','DOUBLE,UCL','2016-17:93;2017-18:94;2021-22:90'),
+      P('Iker Casillas','GK','Spain','Real Madrid / Porto','WC,EURO,UCL','2007-08:93;2009-10:94;2011-12:92;2015-16:84'),
+      P('Zinedine Zidane','MID','France','Real Madrid / Juventus','WC,EURO,UCL','1997-98:97;2001-02:96;2002-03:94'),
+      P('Ronaldo Nazário','FWD','Brazil','Inter / Real Madrid','WC','1996-97:96;1997-98:97;2002-03:92'),
+      P('Kaká','MID','Brazil','AC Milan','UCL','2006-07:97;2007-08:94;2008-09:92'),
+      P('Paolo Maldini','DEF','Italy','AC Milan','UCL','1989-90:94;1993-94:96;2002-03:93'),
+      P('Andrea Pirlo','MID','Italy','AC Milan / Juventus','WC,UCL','2002-03:93;2006-07:94;2011-12:93'),
+      P('Didier Drogba','FWD','Ivory Coast','Chelsea','DOUBLE,UCL,PREM','2009-10:94;2011-12:91;2006-07:92'),
+      P('Frank Lampard','MID','England','Chelsea','DOUBLE,UCL,PREM','2004-05:94;2009-10:95;2011-12:91;2014-15:83'),
+      P('John Terry','DEF','England','Chelsea','DOUBLE,UCL,PREM','2004-05:93;2009-10:92;2011-12:90'),
+      P('Petr Čech','GK','Czechia','Chelsea / Arsenal','DOUBLE,PREM','2004-05:94;2005-06:93;2014-15:91;2017-18:83'),
+      P('Arjen Robben','FWD','Netherlands','Bayern Munich','TREBLE,UCL','2012-13:95;2013-14:94;2014-15:92'),
+      P('Franck Ribéry','FWD','France','Bayern Munich','TREBLE,UCL','2012-13:96;2013-14:94;2014-15:92'),
+      P('Philipp Lahm','DEF','Germany','Bayern Munich','TREBLE,WC,UCL','2012-13:94;2013-14:95;2014-15:93'),
+      P('Manuel Neuer','GK','Germany','Bayern Munich','TREBLE,WC,UCL','2013-14:96;2014-15:96;2019-20:94'),
+      P('Thomas Müller','FWD','Germany','Bayern Munich','TREBLE,WC,UCL','2013-14:93;2019-20:94;2020-21:92'),
+      P('Robert Lewandowski','FWD','Poland','Bayern Munich / Barcelona','TREBLE,DOUBLE,UCL','2019-20:97;2020-21:98;2021-22:96'),
+      P('Kevin De Bruyne','MID','Belgium','Manchester City','TREBLE,DOUBLE,PREM','2019-20:98;2021-22:97;2022-23:98'),
+      P('Erling Haaland','FWD','Norway','Manchester City','TREBLE,PREM','2022-23:98;2023-24:97;2024-25:96'),
+      P('David Silva','MID','Spain','Manchester City','DOUBLE,WC,EURO,PREM','2011-12:93;2017-18:94;2018-19:92'),
+      P('Vincent Kompany','DEF','Belgium','Manchester City','DOUBLE,PREM','2011-12:91;2013-14:93;2018-19:91'),
+      P('Sergio Agüero','FWD','Argentina','Manchester City','DOUBLE,PREM','2011-12:95;2014-15:96;2017-18:95'),
+      P('Yaya Touré','MID','Ivory Coast','Manchester City','DOUBLE,PREM','2011-12:92;2013-14:96;2014-15:93'),
+      P('Wayne Rooney','FWD','England','Manchester United','DOUBLE,UCL,PREM','2007-08:95;2009-10:96;2011-12:94;2016-17:84'),
+      P('Ryan Giggs','MID','Wales','Manchester United','TREBLE,DOUBLE,UCL,PREM','1998-99:94;2007-08:91;2008-09:90'),
+      P('Paul Scholes','MID','England','Manchester United','TREBLE,DOUBLE,UCL,PREM','1998-99:93;2002-03:94;2007-08:92'),
+      P('Roy Keane','MID','Ireland','Manchester United','TREBLE,DOUBLE,PREM','1998-99:94;1999-00:95;2000-01:93'),
+      P('Rio Ferdinand','DEF','England','Manchester United','DOUBLE,UCL,PREM','2007-08:93;2008-09:92;2002-03:91'),
+      P('Nemanja Vidić','DEF','Serbia','Manchester United','DOUBLE,UCL,PREM','2007-08:92;2008-09:94;2010-11:92'),
+      P('Edwin van der Sar','GK','Netherlands','Manchester United / Ajax','UCL,PREM','2007-08:93;2008-09:92;1994-95:92'),
+      P('Alan Shearer','FWD','England','Blackburn / Newcastle','PREM','1994-95:95;1995-96:94;1996-97:92'),
+      P('Dennis Bergkamp','FWD','Netherlands','Arsenal','PREM','1997-98:93;2001-02:91;2003-04:90'),
+      P('Patrick Vieira','MID','France','Arsenal / Juventus','WC,EURO,PREM','2001-02:93;2003-04:94;2004-05:91'),
+      P('Roy Keane','MID','Ireland','Manchester United','DOUBLE,PREM','1998-99:94;1999-00:95;2000-01:93'),
+      P('Steven Gerrard','MID','England','Liverpool','UCL,PREM','2004-05:95;2005-06:93;2008-09:94;2014-15:81'),
+      P('Mohamed Salah','FWD','Egypt','Liverpool','DOUBLE,UCL,PREM','2017-18:97;2018-19:96;2021-22:97'),
+      P('Sadio Mané','FWD','Senegal','Liverpool','DOUBLE,UCL,PREM','2018-19:94;2019-20:95;2021-22:93'),
+      P('Virgil van Dijk','DEF','Netherlands','Liverpool','DOUBLE,UCL,PREM','2018-19:97;2019-20:95;2021-22:94'),
+      P('Alisson Becker','GK','Brazil','Liverpool','DOUBLE,UCL,PREM','2018-19:94;2019-20:95;2021-22:93'),
+      P('Kylian Mbappé','FWD','France','PSG / Real Madrid','WC','2018-19:94;2021-22:97;2022-23:98'),
+      P('Antoine Griezmann','FWD','France','Atlético Madrid','WC,EURO','2015-16:95;2017-18:94;2022-23:93'),
+      P('Fabio Cannavaro','DEF','Italy','Juventus / Real Madrid','WC','2005-06:94;2006-07:92;2007-08:90'),
+      P('Gianluigi Buffon','GK','Italy','Juventus','WC','2002-03:95;2005-06:96;2016-17:93'),
+      P('Miroslav Klose','FWD','Germany','Lazio / Bayern','WC','2005-06:90;2010-11:91;2013-14:89'),
+      P('David Villa','FWD','Spain','Barcelona / Valencia','TREBLE,WC,EURO,UCL','2009-10:94;2010-11:93;2011-12:91'),
+      P('Cesc Fàbregas','MID','Spain','Arsenal / Barcelona','WC,EURO,PREM','2009-10:94;2014-15:93;2016-17:91'),
+      P('Zlatan Ibrahimović','FWD','Sweden','Inter / AC Milan / PSG','DOUBLE','2011-12:94;2013-14:95;2015-16:94'),
+      P('Luis Figo','FWD','Portugal','Real Madrid / Barcelona','EURO,UCL','1999-00:95;2000-01:94;2001-02:92'),
+      P('Fernando Torres','FWD','Spain','Liverpool / Chelsea','WC,EURO,UCL,PREM','2007-08:95;2008-09:93;2011-12:91'),
+      P('Gareth Bale','FWD','Wales','Real Madrid / Tottenham','DOUBLE,UCL,PREM','2012-13:94;2013-14:96;2015-16:94;2022-23:82'),
+      P('Eden Hazard','FWD','Belgium','Chelsea / Real Madrid','DOUBLE,PREM','2014-15:96;2016-17:95;2018-19:96;2019-20:83'),
+      P('Harry Kane','FWD','England','Tottenham / Bayern Munich','PREM','2016-17:95;2022-23:96;2023-24:97'),
+      P('Jude Bellingham','MID','England','Real Madrid','UCL','2023-24:97;2024-25:95'),
+      P('Bukayo Saka','FWD','England','Arsenal','PREM','2022-23:92;2023-24:94;2024-25:93'),
+      P('Rivaldo','FWD','Brazil','Barcelona / AC Milan','WC,UCL','1998-99:96;1999-00:94;2002-03:91'),
+      P('Samuel Eto’o','FWD','Cameroon','Inter Milan','TREBLE,UCL','2009-10:93;2010-11:91'),
+      P('Bastian Schweinsteiger','MID','Germany','Bayern Munich','TREBLE,WC,UCL','2012-13:94;2013-14:93;2014-15:91'),
+      P('Javier Zanetti','DEF','Argentina','Inter Milan','TREBLE,UCL','2009-10:92;2010-11:90'),
+      P('Wesley Sneijder','MID','Netherlands','Inter Milan','TREBLE,UCL','2009-10:96;2010-11:92'),
+      P('Diego Maradona','MID','Argentina','Napoli','WC','1986-87:98;1987-88:97;1989-90:95'),
+      P('Pelé','FWD','Brazil','Santos','WC','1958:99;1962:97;1970:99'),
+      P('Johan Cruyff','FWD','Netherlands','Ajax / Barcelona','TREBLE,UCL','1971-72:97;1972-73:96;1973-74:95'),
+      P('George Best','FWD','Northern Ireland','Manchester United','UCL,PREM','1967-68:96;1969-70:94'),
+      P('Franz Beckenbauer','DEF','Germany','Bayern Munich','WC,UCL','1973-74:97;1974-75:95;1975-76:96'),
+      P('Eusébio','FWD','Portugal','Benfica','UCL','1964-65:96;1965-66:95'),
+      P('Gerd Müller','FWD','Germany','Bayern Munich','WC,UCL','1969-70:97;1971-72:98;1973-74:95'),
+      P('Lothar Matthäus','MID','Germany','Inter / Bayern Munich','WC','1989-90:97;1990-91:95;1990:96'),
+      P('Cafu','DEF','Brazil','AC Milan / Roma','WC,UCL','2002-03:92;2003-04:91;2006-07:90'),
+      P('Roberto Carlos','DEF','Brazil','Real Madrid','WC,UCL','1997-98:94;2001-02:95;2002-03:93'),
+      P('David Beckham','MID','England','Manchester United / Real Madrid','TREBLE,DOUBLE,UCL,PREM','1998-99:94;1999-00:93;2001-02:92'),
+      P('Wayne Rooney','FWD','England','Manchester United','TREBLE,DOUBLE,PREM','2007-08:95;2009-10:96;2011-12:94'),
+      P('Zinedine Zidane','MID','France','Real Madrid','WC,EURO,UCL','1997-98:97;2001-02:96;2002-03:94'),
+      P('Emilio Butragueño','FWD','Spain','Real Madrid','UCL','1985-86:93;1986-87:92'),
+      P('Iker Casillas','GK','Spain','Real Madrid','WC,EURO,UCL','2009-10:94;2010-11:93;2011-12:92'),
+      P('David de Gea','GK','Spain','Manchester United','PREM','2017-18:94;2019-20:91;2022-23:89'),
+      P('Peter Schmeichel','GK','Denmark','Manchester United','TREBLE,PREM','1995-96:93;1998-99:95'),
+      P('Ian Wright','FWD','England','Arsenal','PREM','1991-92:93;1993-94:91;1997-98:90'),
+      P('Eric Cantona','FWD','France','Manchester United','PREM','1993-94:94;1995-96:93'),
+      P('Alan Shearer','FWD','England','Newcastle United','PREM','1994-95:95;1995-96:94;1996-97:92'),
+      P('Claude Makélélé','MID','France','Chelsea / Real Madrid','UCL,PREM','2001-02:92;2004-05:93;2005-06:91'),
+      P('Ruud Gullit','MID','Netherlands','AC Milan','UCL','1988-89:96;1989-90:95'),
+      P('Marco van Basten','FWD','Netherlands','AC Milan','UCL','1988-89:97;1989-90:96;1991-92:95'),
+      P('Xabi Alonso','MID','Spain','Liverpool / Real Madrid','WC,EURO,UCL,PREM','2004-05:90;2009-10:93;2011-12:92'),
+      P('Pedro','FWD','Spain','Barcelona / Chelsea','TREBLE,WC,EURO,UCL,PREM','2009-10:91;2010-11:93;2014-15:91'),
+      P('Carles Puyol','DEF','Spain','Barcelona','TREBLE,DOUBLE,WC,EURO,UCL','2008-09:93;2010-11:94;2011-12:91'),
+      P('Álvaro Morata','FWD','Spain','Juventus / Atlético Madrid','EURO,UCL','2020-21:89;2023-24:91;2024-25:90'),
+      P('Rodri','MID','Spain','Manchester City','TREBLE,DOUBLE,EURO,PREM','2022-23:97;2023-24:98;2024-25:94'),
+      P('Dani Olmo','MID','Spain','RB Leipzig / Barcelona','EURO','2023-24:92;2024-25:91'),
+      P('Nico Williams','FWD','Spain','Athletic Club','EURO','2023-24:91;2024-25:92'),
+      P('Lamine Yamal','FWD','Spain','Barcelona','EURO','2023-24:91;2024-25:96'),
+      P('Unai Simón','GK','Spain','Athletic Club','EURO','2023-24:90;2024-25:90'),
+      P('Aymeric Laporte','DEF','Spain','Manchester City / Al-Nassr','EURO,PREM','2020-21:90;2022-23:91;2023-24:90'),
+      P('Fabián Ruiz','MID','Spain','Napoli / PSG','EURO','2022-23:91;2023-24:92;2024-25:91'),
+      P('Mikel Oyarzabal','FWD','Spain','Real Sociedad','EURO','2020-21:90;2023-24:90;2024-25:91'),
+      P('Dani Carvajal','DEF','Spain','Real Madrid','DOUBLE,EURO,UCL','2016-17:92;2017-18:93;2023-24:95'),
+      P('Park Ji-sung','MID','South Korea','Manchester United','UCL,PREM','2007-08:82;2008-09:84;2010-11:81'),
+      P('Nani','FWD','Portugal','Manchester United','UCL,PREM','2007-08:82;2010-11:87;2011-12:85'),
+      P('Patrice Evra','DEF','France','Manchester United','UCL,PREM','2007-08:87;2008-09:88;2010-11:86'),
+      P('Michael Carrick','MID','England','Manchester United','UCL,PREM','2007-08:86;2008-09:87;2012-13:85'),
+      P('John O’Shea','DEF','Ireland','Manchester United','UCL,PREM','2007-08:78;2008-09:79;2010-11:77'),
+      P('Wes Brown','DEF','England','Manchester United','UCL,PREM','2007-08:79;2008-09:78'),
+      P('Ashley Cole','DEF','England','Chelsea','DOUBLE,UCL,PREM','2009-10:88;2011-12:87;2012-13:85'),
+      P('Branislav Ivanović','DEF','Serbia','Chelsea','UCL,PREM','2009-10:82;2011-12:85;2014-15:86'),
+      P('John Obi Mikel','MID','Nigeria','Chelsea','UCL,PREM','2009-10:78;2011-12:82;2014-15:80'),
+      P('Salomon Kalou','FWD','Ivory Coast','Chelsea','UCL,PREM','2009-10:81;2011-12:82;2012-13:79'),
+      P('Florent Malouda','MID','France','Chelsea','DOUBLE,PREM','2009-10:87;2010-11:84;2011-12:81'),
+      P('Dirk Kuyt','FWD','Netherlands','Liverpool','UCL,PREM','2005-06:80;2006-07:83;2008-09:84'),
+      P('Riyad Mahrez','FWD','Algeria','Manchester City / Leicester City','TREBLE,DOUBLE,PREM','2015-16:88;2021-22:87;2022-23:89'),
+      P('İlkay Gündoğan','MID','Germany','Manchester City','TREBLE,DOUBLE,PREM','2018-19:85;2020-21:87;2022-23:91'),
+      P('Kyle Walker','DEF','England','Manchester City','TREBLE,DOUBLE,PREM','2018-19:85;2021-22:87;2022-23:89'),
+      P('John Stones','DEF','England','Manchester City','TREBLE,DOUBLE,PREM','2018-19:82;2021-22:84;2022-23:89'),
+      P('Ederson','GK','Brazil','Manchester City','TREBLE,DOUBLE,PREM','2018-19:87;2021-22:88;2022-23:89'),
+      P('Bernardo Silva','MID','Portugal','Manchester City','TREBLE,DOUBLE,PREM','2018-19:87;2021-22:89;2022-23:92'),
+      P('Leighton Baines','DEF','England','Everton','PREM','2009-10:85;2012-13:87;2013-14:86'),
+      P('James Milner','MID','England','Liverpool / Manchester City','UCL,PREM','2011-12:82;2018-19:85;2021-22:82'),
+      P('Dimitar Berbatov','FWD','Bulgaria','Manchester United / Tottenham','PREM','2007-08:87;2010-11:90;2011-12:84'),
+      P('Nicolas Anelka','FWD','France','Chelsea / Arsenal','DOUBLE,PREM','1997-98:87;2008-09:85;2009-10:86'),
+      P('Santi Cazorla','MID','Spain','Arsenal','PREM','2012-13:85;2014-15:88;2016-17:84'),
+      P('Robbie Fowler','FWD','England','Liverpool','PREM','1995-96:89;1996-97:90;2001-02:84'),
+      P('Gary Neville','DEF','England','Manchester United','UCL,PREM','1998-99:87;2007-08:85'),
+      P('Emile Heskey','FWD','England','Leicester City / Liverpool','PREM','1999-00:78;2000-01:82;2002-03:79'),
+      P('Robert Huth','DEF','Germany','Chelsea / Leicester City','PREM','2004-05:78;2005-06:79;2015-16:83'),
+      P('Jermain Defoe','FWD','England','Tottenham / Sunderland','PREM','2009-10:84;2011-12:82;2015-16:80'),
+      P('Peter Crouch','FWD','England','Liverpool / Stoke City','PREM','2006-07:81;2007-08:82;2011-12:80'),
+      P('Kolo Touré','DEF','Ivory Coast','Arsenal / Manchester City','PREM','2003-04:88;2011-12:83;2013-14:80'),
+      P('Jens Lehmann','GK','Germany','Arsenal','PREM','2003-04:87;2005-06:88;2006-07:83'),
+      P('Andriy Shevchenko','FWD','Ukraine','AC Milan / Chelsea','UCL','2002-03:96;2003-04:95;2004-05:93'),
+      P('Pavel Nedvěd','MID','Czechia','Juventus','UCL','2002-03:96;2003-04:93;2004-05:91'),
+      P('Michael Owen','FWD','England','Liverpool / Real Madrid','PREM','2000-01:94;2001-02:91;2002-03:89'),
+      P('Bobby Charlton','MID','England','Manchester United','UCL','1965-66:95;1967-68:94'),
+      P('Isco','MID','Spain','Real Madrid','UCL','2016-17:86;2017-18:88;2018-19:84'),
+      P('Keylor Navas','GK','Costa Rica','Real Madrid','UCL','2015-16:87;2016-17:89;2017-18:88'),
+      P('Raphaël Varane','DEF','France','Real Madrid','WC,UCL','2016-17:87;2017-18:89;2018-19:86'),
+      P('Marco Asensio','FWD','Spain','Real Madrid','UCL','2016-17:83;2017-18:85;2022-23:82'),
+      P('Carlos Tévez','FWD','Argentina','Manchester United','UCL,PREM','2007-08:90;2008-09:88;2009-10:87'),
+      P('Jérôme Boateng','DEF','Germany','Bayern Munich','TREBLE,WC,UCL','2012-13:88;2013-14:87;2019-20:86'),
+      P('David Alaba','DEF','Austria','Bayern Munich / Real Madrid','TREBLE,UCL','2012-13:87;2013-14:88;2019-20:89'),
+      P('Javi Martínez','MID','Spain','Bayern Munich','TREBLE,UCL','2012-13:87;2013-14:84'),
+      P('Mario Mandžukić','FWD','Croatia','Bayern Munich / Juventus','TREBLE,UCL','2012-13:87;2016-17:85;2017-18:86'),
+      P('Mario Gómez','FWD','Germany','Bayern Munich','UCL','2010-11:88;2011-12:89;2012-13:86'),
+      P('Phil Foden','MID','England','Manchester City','TREBLE,PREM','2021-22:88;2022-23:91;2023-24:94'),
+      P('Jack Grealish','FWD','England','Manchester City','TREBLE,PREM','2020-21:87;2022-23:86;2023-24:84'),
+      P('Rúben Dias','DEF','Portugal','Manchester City','TREBLE,PREM','2020-21:91;2021-22:89;2022-23:90'),
+      P('Nathan Aké','DEF','Netherlands','Manchester City','TREBLE,PREM','2021-22:82;2022-23:86;2023-24:85'),
+      P('Diego Milito','FWD','Argentina','Inter Milan','TREBLE,UCL','2009-10:94;2010-11:85'),
+      P('Maicon','DEF','Brazil','Inter Milan','TREBLE,UCL','2008-09:88;2009-10:91'),
+      P('Lúcio','DEF','Brazil','Inter Milan','TREBLE,WC,UCL','2009-10:90;2010-11:86'),
+      P('Esteban Cambiasso','MID','Argentina','Inter Milan','TREBLE,UCL','2009-10:88;2010-11:86'),
+      P('Júlio César','GK','Brazil','Inter Milan','TREBLE,UCL','2009-10:92;2010-11:87'),
+      P('Robert Pirès','MID','France','Arsenal','PREM','2001-02:91;2003-04:92;2004-05:88'),
+      P('Freddie Ljungberg','MID','Sweden','Arsenal','PREM','2001-02:88;2003-04:87'),
+      P('Sol Campbell','DEF','England','Arsenal','PREM','2001-02:87;2003-04:89'),
+      P('Lauren','DEF','Cameroon','Arsenal','PREM','2001-02:84;2003-04:85'),
+      P('Gilberto Silva','MID','Brazil','Arsenal','WC,PREM','2003-04:86;2004-05:85'),
+      P('José Antonio Reyes','FWD','Spain','Arsenal','PREM','2003-04:85;2004-05:83'),
+      P('Roberto Firmino','FWD','Brazil','Liverpool','UCL,PREM','2017-18:88;2018-19:90;2019-20:88'),
+      P('Trent Alexander-Arnold','DEF','England','Liverpool','UCL,PREM','2018-19:87;2019-20:91;2021-22:90'),
+      P('Andrew Robertson','DEF','Scotland','Liverpool','UCL,PREM','2018-19:89;2019-20:90;2021-22:88'),
+      P('Fabinho','MID','Brazil','Liverpool','UCL,PREM','2018-19:87;2019-20:89;2021-22:86'),
+      P('Georginio Wijnaldum','MID','Netherlands','Liverpool','UCL,PREM','2018-19:87;2019-20:86;2020-21:84'),
+      P('Jordan Henderson','MID','England','Liverpool','UCL,PREM','2018-19:85;2019-20:87;2021-22:85'),
+      P('Joe Cole','MID','England','Chelsea','DOUBLE,PREM','2004-05:84;2006-07:87;2009-10:84'),
+      P('Ricardo Carvalho','DEF','Portugal','Chelsea','DOUBLE,PREM','2004-05:91;2005-06:89;2006-07:87'),
+      P('Damien Duff','FWD','Ireland','Chelsea','PREM','2002-03:86;2004-05:87;2005-06:83')
+    ];
+    // Merge repeated records into one identity so no alternate entry or season can create a second pick.
+    const playerByName = new Map();
+    for (const player of playerEntries) {
+      const key = player.name.toLocaleLowerCase();
+      const existing = playerByName.get(key);
+      if (!existing) {
+        playerByName.set(key, {...player, tags:[...player.tags], editions:[...player.editions]});
+      } else {
+        existing.tags = [...new Set([...existing.tags, ...player.tags])];
+        existing.positions = [...new Set([...existing.positions, ...player.positions])];
+        existing.editions = [...new Map([...existing.editions, ...player.editions].map(e=>[`${e.season}:${e.rating}`,e])).values()];
+        existing.club = [...new Set([...existing.club.split(' / '), ...player.club.split(' / ')])].join(' / ');
+      }
+    }
+    const players = [...playerByName.values()];
+    const ballonDorWinners=new Set(['Lionel Messi','Cristiano Ronaldo','Zinedine Zidane','Ronaldo Nazário','Kaká','Ronaldinho','Rivaldo','Luka Modrić','Karim Benzema','George Best','Johan Cruyff','Eusébio','Franz Beckenbauer','Gerd Müller','Marco van Basten','Ruud Gullit','Lothar Matthäus','Fabio Cannavaro','Pavel Nedvěd','Andriy Shevchenko','Michael Owen','Bobby Charlton']);
+    const categories=[
+      {id:'MIXED',name:'Mixed pool · everything',icon:'🎲',desc:'Every player, era and level'},
+      {id:'ALL',name:'All-time greats',icon:'✦',desc:'Top-rated legends across eras'},
+      {id:'TREBLE',name:'Treble winners',icon:'🏆',desc:'Continental treble seasons'},
+      {id:'DOUBLE',name:'Double winners',icon:'🥇',desc:'Domestic double campaigns'},
+      {id:'WC',name:'World Cup winners',icon:'🌍',desc:'International champions'},
+      {id:'EURO',name:'Euro winners',icon:'🇪🇺',desc:'European champions'},
+      {id:'UCL',name:'Champions League',icon:'⭐',desc:'European club champions'},
+      {id:'PREM',name:'Premier League icons',icon:'🏴',desc:'Stars of the English game'},
+      {id:'BALLON',name:'Ballon d’Or winners',icon:'🌟',desc:'Award-winning greats'},
+      {id:'MODERN',name:'Modern era · 2000+',icon:'⚡',desc:'Recent generations'}
+    ];
+    const formations={'4-3-3':['GK','RB','CB','CB','LB','CM','CM','CM','RW','ST','LW'],'4-4-2':['GK','RB','CB','CB','LB','RM','CM','CM','LM','ST','ST'],'3-5-2':['GK','CB','CB','CB','RWB','CM','CM','CM','LWB','ST','ST'],'4-2-3-1':['GK','RB','CB','CB','LB','CDM','CDM','CAM','RW','LW','ST']};
+    // Curated eligible players with appearances for this club in this exact season.
+    // Ratings are retrospective game estimates; methodology and sources: FOOTBALL_DATA.md.
+    const historicalTeams=[
+  {
+    "name": "Real Madrid",
+    "season": "2017/2018",
+    "tags": [
+      "UCL"
+    ],
+    "members": [
+      "Cristiano Ronaldo",
+      "Karim Benzema",
+      "Gareth Bale",
+      "Luka Modrić",
+      "Toni Kroos",
+      "Casemiro",
+      "Sergio Ramos",
+      "Marcelo",
+      "Dani Carvajal",
+      "Isco",
+      "Keylor Navas",
+      "Raphaël Varane",
+      "Marco Asensio"
+    ],
+    "ratings": {
+      "Cristiano Ronaldo": 97,
+      "Karim Benzema": 84,
+      "Gareth Bale": 89,
+      "Luka Modrić": 94,
+      "Toni Kroos": 91,
+      "Casemiro": 89,
+      "Sergio Ramos": 92,
+      "Marcelo": 91,
+      "Dani Carvajal": 87,
+      "Isco": 88,
+      "Keylor Navas": 89,
+      "Raphaël Varane": 90,
+      "Marco Asensio": 84
+    }
+  },
+  {
+    "name": "Barcelona",
+    "season": "2010/2011",
+    "tags": [
+      "DOUBLE",
+      "UCL"
+    ],
+    "members": [
+      "Lionel Messi",
+      "David Villa",
+      "Pedro",
+      "Xavi",
+      "Andrés Iniesta",
+      "Sergio Busquets",
+      "Gerard Piqué",
+      "Carles Puyol",
+      "Dani Alves",
+      "Seydou Keita",
+      "Javier Mascherano",
+      "Víctor Valdés",
+      "Éric Abidal",
+      "Adriano",
+      "Bojan Krkić"
+    ],
+    "ratings": {
+      "Lionel Messi": 99,
+      "David Villa": 92,
+      "Pedro": 87,
+      "Xavi": 96,
+      "Andrés Iniesta": 95,
+      "Sergio Busquets": 90,
+      "Gerard Piqué": 89,
+      "Carles Puyol": 90,
+      "Dani Alves": 92,
+      "Seydou Keita": 83,
+      "Javier Mascherano": 86,
+      "Víctor Valdés": 89,
+      "Éric Abidal": 87,
+      "Adriano": 81,
+      "Bojan Krkić": 78
+    }
+  },
+  {
+    "name": "Manchester United",
+    "season": "2007/2008",
+    "tags": [
+      "DOUBLE",
+      "UCL",
+      "PREM"
+    ],
+    "members": [
+      "Cristiano Ronaldo",
+      "Wayne Rooney",
+      "Carlos Tévez",
+      "Ryan Giggs",
+      "Paul Scholes",
+      "Michael Carrick",
+      "Nani",
+      "Park Ji-sung",
+      "Patrice Evra",
+      "Rio Ferdinand",
+      "Nemanja Vidić",
+      "Edwin van der Sar",
+      "Wes Brown",
+      "John O’Shea"
+    ],
+    "ratings": {
+      "Cristiano Ronaldo": 98,
+      "Wayne Rooney": 91,
+      "Carlos Tévez": 90,
+      "Ryan Giggs": 85,
+      "Paul Scholes": 88,
+      "Michael Carrick": 87,
+      "Nani": 81,
+      "Park Ji-sung": 82,
+      "Patrice Evra": 90,
+      "Rio Ferdinand": 94,
+      "Nemanja Vidić": 93,
+      "Edwin van der Sar": 91,
+      "Wes Brown": 85,
+      "John O’Shea": 80
+    }
+  },
+  {
+    "name": "Manchester United",
+    "season": "2008/2009",
+    "tags": [
+      "DOUBLE",
+      "UCL",
+      "PREM"
+    ],
+    "members": [
+      "Cristiano Ronaldo",
+      "Wayne Rooney",
+      "Carlos Tévez",
+      "Dimitar Berbatov",
+      "Ryan Giggs",
+      "Paul Scholes",
+      "Michael Carrick",
+      "Darren Fletcher",
+      "Nani",
+      "Park Ji-sung",
+      "Patrice Evra",
+      "Rio Ferdinand",
+      "Nemanja Vidić",
+      "Edwin van der Sar",
+      "John O’Shea",
+      "Gary Neville",
+      "Jonny Evans"
+    ],
+    "ratings": {
+      "Cristiano Ronaldo": 96,
+      "Wayne Rooney": 92,
+      "Carlos Tévez": 86,
+      "Dimitar Berbatov": 86,
+      "Ryan Giggs": 87,
+      "Paul Scholes": 85,
+      "Michael Carrick": 88,
+      "Darren Fletcher": 86,
+      "Nani": 78,
+      "Park Ji-sung": 84,
+      "Patrice Evra": 90,
+      "Rio Ferdinand": 92,
+      "Nemanja Vidić": 95,
+      "Edwin van der Sar": 93,
+      "John O’Shea": 85,
+      "Gary Neville": 79,
+      "Jonny Evans": 82
+    }
+  },
+  {
+    "name": "Bayern Munich",
+    "season": "2012/2013",
+    "tags": [
+      "TREBLE",
+      "DOUBLE",
+      "UCL"
+    ],
+    "members": [
+      "Arjen Robben",
+      "Franck Ribéry",
+      "Thomas Müller",
+      "Mario Mandžukić",
+      "Bastian Schweinsteiger",
+      "Toni Kroos",
+      "Philipp Lahm",
+      "Manuel Neuer",
+      "Jérôme Boateng",
+      "David Alaba",
+      "Javi Martínez",
+      "Dante",
+      "Xherdan Shaqiri",
+      "Mario Gómez"
+    ],
+    "ratings": {
+      "Arjen Robben": 92,
+      "Franck Ribéry": 96,
+      "Thomas Müller": 91,
+      "Mario Mandžukić": 87,
+      "Bastian Schweinsteiger": 93,
+      "Toni Kroos": 89,
+      "Philipp Lahm": 94,
+      "Manuel Neuer": 93,
+      "Jérôme Boateng": 87,
+      "David Alaba": 88,
+      "Javi Martínez": 90,
+      "Dante": 89,
+      "Xherdan Shaqiri": 81,
+      "Mario Gómez": 86
+    }
+  },
+  {
+    "name": "Manchester City",
+    "season": "2022/2023",
+    "tags": [
+      "TREBLE",
+      "DOUBLE",
+      "UCL",
+      "PREM"
+    ],
+    "members": [
+      "Erling Haaland",
+      "Kevin De Bruyne",
+      "Bernardo Silva",
+      "İlkay Gündoğan",
+      "Rodri",
+      "Riyad Mahrez",
+      "Phil Foden",
+      "Jack Grealish",
+      "Kyle Walker",
+      "John Stones",
+      "Rúben Dias",
+      "Nathan Aké",
+      "Ederson",
+      "Julián Álvarez",
+      "Manuel Akanji"
+    ],
+    "ratings": {
+      "Erling Haaland": 97,
+      "Kevin De Bruyne": 95,
+      "Bernardo Silva": 92,
+      "İlkay Gündoğan": 91,
+      "Rodri": 95,
+      "Riyad Mahrez": 86,
+      "Phil Foden": 86,
+      "Jack Grealish": 88,
+      "Kyle Walker": 88,
+      "John Stones": 91,
+      "Rúben Dias": 92,
+      "Nathan Aké": 88,
+      "Ederson": 89,
+      "Julián Álvarez": 85,
+      "Manuel Akanji": 87
+    }
+  },
+  {
+    "name": "Inter Milan",
+    "season": "2009/2010",
+    "tags": [
+      "TREBLE",
+      "DOUBLE",
+      "UCL"
+    ],
+    "members": [
+      "Samuel Eto’o",
+      "Wesley Sneijder",
+      "Javier Zanetti",
+      "Diego Milito",
+      "Maicon",
+      "Lúcio",
+      "Walter Samuel",
+      "Esteban Cambiasso",
+      "Thiago Motta",
+      "Goran Pandev",
+      "Dejan Stanković",
+      "Júlio César",
+      "Mario Balotelli",
+      "Cristian Chivu"
+    ],
+    "ratings": {
+      "Samuel Eto’o": 91,
+      "Wesley Sneijder": 95,
+      "Javier Zanetti": 91,
+      "Diego Milito": 95,
+      "Maicon": 94,
+      "Lúcio": 92,
+      "Walter Samuel": 91,
+      "Esteban Cambiasso": 91,
+      "Thiago Motta": 85,
+      "Goran Pandev": 83,
+      "Dejan Stanković": 86,
+      "Júlio César": 94,
+      "Mario Balotelli": 80,
+      "Cristian Chivu": 86
+    }
+  },
+  {
+    "name": "Arsenal",
+    "season": "2003/2004",
+    "tags": [
+      "PREM"
+    ],
+    "members": [
+      "Thierry Henry",
+      "Dennis Bergkamp",
+      "Patrick Vieira",
+      "Robert Pirès",
+      "Freddie Ljungberg",
+      "Sol Campbell",
+      "Kolo Touré",
+      "Ashley Cole",
+      "Lauren",
+      "Gilberto Silva",
+      "Jens Lehmann",
+      "Cesc Fàbregas",
+      "José Antonio Reyes",
+      "Edu"
+    ],
+    "ratings": {
+      "Thierry Henry": 98,
+      "Dennis Bergkamp": 89,
+      "Patrick Vieira": 94,
+      "Robert Pirès": 93,
+      "Freddie Ljungberg": 87,
+      "Sol Campbell": 92,
+      "Kolo Touré": 88,
+      "Ashley Cole": 91,
+      "Lauren": 86,
+      "Gilberto Silva": 88,
+      "Jens Lehmann": 88,
+      "Cesc Fàbregas": 72,
+      "José Antonio Reyes": 80,
+      "Edu": 83
+    }
+  },
+  {
+    "name": "Liverpool",
+    "season": "2018/2019",
+    "tags": [
+      "UCL",
+      "PREM"
+    ],
+    "members": [
+      "Mohamed Salah",
+      "Sadio Mané",
+      "Roberto Firmino",
+      "Virgil van Dijk",
+      "Alisson Becker",
+      "Trent Alexander-Arnold",
+      "Andrew Robertson",
+      "Fabinho",
+      "Georginio Wijnaldum",
+      "Jordan Henderson",
+      "James Milner",
+      "Joël Matip",
+      "Joe Gomez",
+      "Divock Origi"
+    ],
+    "ratings": {
+      "Mohamed Salah": 94,
+      "Sadio Mané": 94,
+      "Roberto Firmino": 89,
+      "Virgil van Dijk": 97,
+      "Alisson Becker": 94,
+      "Trent Alexander-Arnold": 90,
+      "Andrew Robertson": 91,
+      "Fabinho": 89,
+      "Georginio Wijnaldum": 88,
+      "Jordan Henderson": 86,
+      "James Milner": 85,
+      "Joël Matip": 88,
+      "Joe Gomez": 83,
+      "Divock Origi": 80
+    }
+  },
+  {
+    "name": "Chelsea",
+    "season": "2004/2005",
+    "tags": [
+      "DOUBLE",
+      "PREM"
+    ],
+    "members": [
+      "Didier Drogba",
+      "Frank Lampard",
+      "John Terry",
+      "Petr Čech",
+      "Claude Makélélé",
+      "Joe Cole",
+      "Arjen Robben",
+      "William Gallas",
+      "Ricardo Carvalho",
+      "Damien Duff",
+      "Eiður Guððjohnsen",
+      "Tiago",
+      "Paulo Ferreira",
+      "Glen Johnson",
+      "Robert Huth"
+    ],
+    "ratings": {
+      "Didier Drogba": 84,
+      "Frank Lampard": 95,
+      "John Terry": 95,
+      "Petr Čech": 96,
+      "Claude Makélélé": 93,
+      "Joe Cole": 86,
+      "Arjen Robben": 90,
+      "William Gallas": 90,
+      "Ricardo Carvalho": 92,
+      "Damien Duff": 88,
+      "Eiður Guððjohnsen": 86,
+      "Tiago": 83,
+      "Paulo Ferreira": 85,
+      "Glen Johnson": 78,
+      "Robert Huth": 76
+    }
+  }
+];
+    const historicalPlayerMetadata={"Seydou Keita": ["MID", "Mali", ["CM", "CDM"]], "Javier Mascherano": ["DEF", "Argentina", ["CB", "CDM"]], "Víctor Valdés": ["GK", "Spain", ["GK"]], "Éric Abidal": ["DEF", "France", ["LB", "CB"]], "Adriano": ["DEF", "Brazil", ["LB", "RB"]], "Bojan Krkić": ["FWD", "Spain", ["ST", "RW"]], "Darren Fletcher": ["MID", "Scotland", ["CM", "CDM"]], "Jonny Evans": ["DEF", "Northern Ireland", ["CB"]], "Dante": ["DEF", "Brazil", ["CB"]], "Xherdan Shaqiri": ["FWD", "Switzerland", ["RW", "CAM"]], "Julián Álvarez": ["FWD", "Argentina", ["ST", "CF"]], "Manuel Akanji": ["DEF", "Switzerland", ["CB", "RB"]], "Walter Samuel": ["DEF", "Argentina", ["CB"]], "Thiago Motta": ["MID", "Italy", ["CDM", "CM"]], "Goran Pandev": ["FWD", "North Macedonia", ["ST", "LW"]], "Dejan Stanković": ["MID", "Serbia", ["CM", "CAM"]], "Mario Balotelli": ["FWD", "Italy", ["ST"]], "Cristian Chivu": ["DEF", "Romania", ["LB", "CB"]], "Edu": ["MID", "Brazil", ["CM"]], "Joël Matip": ["DEF", "Cameroon", ["CB"]], "Joe Gomez": ["DEF", "England", ["CB", "RB"]], "Divock Origi": ["FWD", "Belgium", ["ST", "LW"]], "William Gallas": ["DEF", "France", ["CB", "LB"]], "Eiður Guððjohnsen": ["FWD", "Iceland", ["ST", "CF"]], "Tiago": ["MID", "Portugal", ["CM"]], "Paulo Ferreira": ["DEF", "Portugal", ["RB"]], "Glen Johnson": ["DEF", "England", ["RB"]]};
+    const historicalPositionOverrides={'Philipp Lahm':['RB','LB'],'Javier Zanetti':['RB','LB','CDM'],'Javi Martínez':['CDM','CM'],'Gilberto Silva':['CDM'],'Phil Foden':['LW','RW','CAM'],'Damien Duff':['LW','RW']};
+    const historicalNames=new Set(historicalTeams.flatMap(squad=>squad.members));
+    for(const squad of historicalTeams){
+      for(const name of squad.members){
+        let player=players.find(p=>p.name===name);
+        if(!player){
+          const metadata=historicalPlayerMetadata[name];
+          if(!metadata)throw new Error(`Missing historical player metadata: ${name}`);
+          const [pos,nation,positions]=metadata;
+          player={name,pos,nation,positions,club:squad.name,tags:[],editions:[]};
+          players.push(player);
+        }
+        if(historicalPositionOverrides[name])player.positions=[...historicalPositionOverrides[name]];
+        player.tags=[...new Set([...player.tags,...squad.tags])];
+      }
+    }
+    function historicalEditions(player){return historicalTeams.filter(s=>s.members.includes(player.name)).map(s=>({season:seasonKey(s.season),rating:s.ratings[player.name],club:s.name}))}
+    function seasonKey(season){const parts=season.split('/');return parts.length===2?`${parts[0]}-${parts[1].slice(-2)}`:season}
+    function canStartHistoricalDraft(pool,count){
+      const squads=historicalTeams.filter(s=>s.members.some(name=>pool.some(p=>p.name===name)));
+      // At most count-1 players can be stranded in each squad. This reserve guarantees
+      // a real squad can supply every manager in all 11 rounds, for any legal picks.
+      return pool.length>=count*11+Math.max(0,squads.length-1)*(count-1);
+    }
+    const state={category:'MIXED',count:2,names:[],teams:[],available:[],roundPool:[],roundTeam:null,turn:0,round:0,finished:false,season:null,seasonMonth:0,janDone:false,seasonComplete:false,simMode:null,simPaused:false,simTimer:null,matchQueue:[],matchBatch:[],broadcastTimer:null,broadcastElapsed:0,halfSeconds:4,confettiDone:false};
+    const $=s=>document.querySelector(s);
+    const crestColors={'arsenal':['#b51f32','#f3d16b'],'chelsea':['#1557a5','#f7f7f3'],'liverpool':['#b3182d','#f2d164'],'manchester united':['#c41e32','#f4c54b'],'manchester city':['#61b8e8','#172b52'],'tottenham':['#eef2f5','#183866'],'real madrid':['#eee9df','#c4a24e'],'barcelona':['#a61939','#174288'],'bayern munich':['#c82338','#f5eee2'],'inter milan':['#102857','#75b7db'],'ac milan':['#bb1f32','#191919'],'juventus':['#252525','#eeeeee'],'paris saint-germain':['#133a71','#dc2445'],'ajax':['#f4f4ef','#cf2434'],'arsenal':['#b51f32','#f3d16b'],'leicester city':['#224e9b','#f4f4eb'],'everton':['#123b8c','#f3f3ef'],'newcastle united':['#232323','#f1f1ec'],'aston villa':['#8e1c3c','#76b9dc'],'west ham united':['#762844','#67b4d2'],'brighton':['#155aa6','#f3f3f3'],'borussia dortmund':['#f0d323','#171717'],'atlético madrid':['#d2293c','#f5f3ed'],'real sociedad':['#2476b9','#f4f4ef'],'benfica':['#c51f36','#f1d565'],'porto':['#24447e','#69b6d5']};
+    const crestPaletteFallback=[['#637a48','#e4c47a'],['#355d9a','#e5e9f2'],['#8d3946','#f1d174'],['#28756f','#e9eee2'],['#59477d','#e4c47a'],['#9b672d','#f4e3bd']];
+    function clubPalette(name){const key=name.toLocaleLowerCase();if(crestColors[key])return crestColors[key];let hash=0;for(const char of key)hash=(hash*31+char.charCodeAt(0))>>>0;return crestPaletteFallback[hash%crestPaletteFallback.length]}
+    function clubInitials(name){const words=name.replace(/[^\p{L}\p{N} ]/gu,' ').trim().split(/\s+/).filter(Boolean);if(words.length===1)return words[0].slice(0,2).toUpperCase();return words.slice(0,3).map(word=>word[0]).join('').toUpperCase()}
+    function crestSlug(name){return name.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+    function clubCrest(name,size='small'){const label=String(name).replaceAll('&','&amp;').replaceAll('"','&quot;');return `<img class="club-crest ${size} official-club-crest" style="object-fit:contain" src="assets/club-badges/${crestSlug(name)}.png" alt="${label} badge" data-club-name="${label}" data-crest-size="${size}">`}
+    document.addEventListener('error',event=>{const image=event.target;if(!(image instanceof HTMLImageElement)||!image.classList.contains('official-club-crest'))return;const label=document.createElement('span');label.className=image.className;label.textContent=clubInitials(image.dataset.clubName||'Club');label.title=`${image.dataset.clubName} badge unavailable`;image.replaceWith(label)},true)
+    function availableFor(id){const pool=players.filter(p=>historicalNames.has(p.name));if(id==='MIXED')return pool;if(id==='ALL')return pool.filter(p=>historicalEditions(p).some(e=>e.rating>=88));if(id==='BALLON')return pool.filter(p=>ballonDorWinners.has(p.name));if(id==='MODERN')return pool.filter(p=>historicalEditions(p).some(e=>Number(e.season.slice(0,4))>=2000));return pool.filter(p=>p.tags.includes(id))}
+    function renderCategories(){const host=$('#categories');host.innerHTML=categories.map(c=>`<button class="category ${c.id===state.category?'selected':''}" data-id="${c.id}"><div class="cat-icon">${c.icon}</div><div class="cat-name">${c.name}</div><div class="cat-count">${availableFor(c.id).length} unique players</div></button>`).join('');host.querySelectorAll('.category').forEach(b=>b.onclick=()=>{state.category=b.dataset.id;renderCategories();updateSetup()})}
+    function updateSetup(){const oldCount=state.count;const oldNames=Array.from({length:oldCount},(_,i)=>$(`#manager${i}`)?.value||state.names[i]||`Player ${i+1}`);const oldClubs=Array.from({length:oldCount},(_,i)=>$(`#club${i}`)?.value);const oldFormations=Array.from({length:oldCount},(_,i)=>$(`#formation${i}`)?.value);state.count=Number($('#playerCount').value);const pool=availableFor(state.category);const formationOptions=Object.keys(formations).map(f=>`<option value="${f}">${f}</option>`).join('');const clubOptions=premierClubs.map(c=>`<option value="${c}">${c}</option>`).join('');$('#names').innerHTML=Array.from({length:state.count},(_,i)=>`<div class="field"><label for="manager${i}">Manager ${i+1}</label><input id="manager${i}" maxlength="20" value="${oldNames[i]||`Player ${i+1}`}" placeholder="Manager name"><select id="club${i}" aria-label="Manager ${i+1} Premier League club" style="width:100%;height:40px;margin-top:7px;background:#111711;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:0 10px">${clubOptions}</select><select id="formation${i}" aria-label="Manager ${i+1} formation" style="width:100%;height:40px;margin-top:7px;background:#111711;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:0 10px">${formationOptions}</select></div>`).join('');for(let i=0;i<state.count;i++){$(`#club${i}`).value=oldClubs[i]||premierClubs[i];$(`#formation${i}`).value=oldFormations[i]||'4-3-3';$(`#club${i}`).onchange=validateClubChoices}$(`#poolHint`).textContent=`${pool.length} unique players in this pool · exactly 11 picks per manager (${state.count*11} total). Choose a unique Premier League club for each manager.`;const notice=$('#setupNotice');if(!canStartHistoricalDraft(pool,state.count)){notice.style.display='block';notice.textContent=`This category has ${pool.length} eligible historical players. Choose fewer managers or a larger pool so every round can use one real club-season squad.`;$('#startButton').disabled=true;$('#startButton').style.opacity='.55'}else{notice.style.display='none';$('#startButton').disabled=false;$('#startButton').style.opacity='1'}validateClubChoices()}
+    function renderClubSelectionBadges(){for(let i=0;i<state.count;i++){const select=$(`#club${i}`);if(!select)continue;let preview=select.parentElement.querySelector('.club-preview');if(!preview){preview=document.createElement('div');preview.className='club-preview';select.insertAdjacentElement('afterend',preview)}preview.innerHTML=`${clubCrest(select.value)}<span>${select.value} · club badge</span>`}}
+    function decorateSeasonBadges(){const root=$('#seasonSummary');if(!root)return;root.querySelectorAll('.winner').forEach(node=>{if(node.querySelector('.club-crest'))return;const name=node.textContent.replace('🏆','').trim();node.insertAdjacentHTML('afterbegin',clubCrest(name,'medium'))});root.querySelectorAll('.table tbody tr').forEach(row=>{const cell=row.cells[1];if(!cell||cell.querySelector('.club-crest'))return;const name=cell.textContent.replace(' · your XI','').trim();if([...premierClubs,...europeanClubs,...extraCupClubs].includes(name))cell.insertAdjacentHTML('afterbegin',clubCrest(name))})}
+    function validateClubChoices(){renderClubSelectionBadges();const selections=Array.from({length:state.count},(_,i)=>$(`#club${i}`)?.value).filter(Boolean);const duplicate=new Set(selections).size!==selections.length;const notice=$('#setupNotice');if(duplicate){notice.style.display='block';notice.textContent='Each manager must represent a different Premier League club.';$('#startButton').disabled=true;$('#startButton').style.opacity='.55'}else if(canStartHistoricalDraft(availableFor(state.category),state.count)){notice.style.display='none';$('#startButton').disabled=false;$('#startButton').style.opacity='1'}}
+    function currentTeam(){return state.teams[state.turn]}
+    function pickSequence(round){const cycle=Math.floor(round/state.count),index=round%state.count;return cycle%2===0?index:state.count-1-index}
+    function shuffled(items){const copy=[...items];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
+    function editionForTeam(player,squad){
+      const rating=squad.ratings[player.name];
+      if(!squad.members.includes(player.name)||!Number.isFinite(rating))throw new Error('Player is not eligible for this club-season');
+      return {season:seasonKey(squad.season),rating,club:squad.name};
+    }
+    function refreshRoundPool(){
+      const availableByName=new Map(state.available.map(p=>[p.name,p]));
+      const eligible=historicalTeams.map(squad=>({...squad,players:squad.members.map(name=>availableByName.get(name)).filter(Boolean)})).filter(squad=>squad.players.length>=state.count);
+      if(!eligible.length)throw new Error('No eligible historical squad remains');
+      state.roundTeam=eligible[Math.floor(Math.random()*eligible.length)];
+      state.roundPool=shuffled(state.roundTeam.players).map(player=>({...player,club:state.roundTeam.name,positions:player.name==='Cristiano Ronaldo'?(state.roundTeam.name==='Manchester United'?['RW','LW','ST']:['ST','LW']):[...player.positions],editions:[editionForTeam(player,state.roundTeam)]}));
+    }
+    function startGame(){state.count=Number($('#playerCount').value);validateClubChoices();if($('#startButton').disabled)return;state.names=Array.from({length:state.count},(_,i)=>$('#manager'+i).value.trim()||`Player ${i+1}`);state.teams=state.names.map((name,i)=>({name,clubName:$(`#club${i}`).value,formation:$('#formation'+i).value,picks:[]}));state.available=availableFor(state.category).map((p,i)=>({...p,identity:i}));state.roundPool=[];state.round=0;state.season=null;state.seasonMonth=0;state.janDone=false;state.seasonComplete=false;refreshRoundPool();state.turn=pickSequence(0);state.finished=false;$('#search').value='';$('#setup').classList.add('hidden');$('#season').classList.add('hidden');$('#results').classList.add('hidden');$('#game').classList.remove('hidden');renderGame()}
+    function renderGame(){if(state.teams.every(t=>t.picks.length===11)){finishDraft();return}const team=currentTeam();const draftRound=Math.floor(state.round/state.count)+1;const draftPick=state.round%state.count+1;$('#gameEyebrow').textContent=`${state.roundTeam.name} · ${state.roundTeam.season} historical squad`;$('#roundCrest').innerHTML=clubCrest(state.roundTeam.name,'large');$('#turnLabel').textContent=`${team.name} · ${team.clubName}`;$('#pickLabel').textContent=`Round ${draftRound} · Pick ${draftPick} of ${state.count}`;$('#draftProgress').textContent=`Squad rating ${team.picks.length?Math.round(team.picks.reduce((sum,p)=>sum+p.edition.rating,0)/team.picks.length):'—'} · ${team.picks.length}/11 players`;$('#roundPoolLabel').innerHTML=`<span class="history-stamp">${clubCrest(state.roundTeam.name)} ${state.roundTeam.name} · ${state.roundTeam.season}</span>`;$('#availableCount').textContent=`${state.roundPool.length} squad players available`;renderCards();renderTeams()}
+    function renderCards(){const q=$('#search').value.toLowerCase();const cards=state.roundPool.filter(p=>`${p.name} ${p.positions.join(' ')} ${p.nation} ${p.club}`.toLowerCase().includes(q));$('#cards').innerHTML=cards.map(p=>{const id=`edition-${p.identity}`;return `<article class="player-card" style="border-top:2px solid ${clubPalette(state.roundTeam.name)[0]}"><div class="cardtop"><span class="rating" aria-label="Rating hidden until drafted">?</span><span class="pos">${p.positions.join(' / ')}</span></div><div class="player-name" title="${p.name}">${p.name}</div><div class="player-clubline">${clubCrest(state.roundTeam.name)}<span>${p.nation} · ${state.roundTeam.name}</span></div><div class="card-controls"><select id="${id}" aria-label="${p.name} locked to ${p.editions[0].season}" disabled><option value="0">${p.editions[0].season}</option></select><button class="pick" data-pick="${p.identity}">Draft</button></div></article>`}).join('')||'<p class="sub">No players from this historical squad match that search.</p>';$('#cards').querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>draft(Number(b.dataset.pick)))}
+    function draft(identity){if(state.finished||state.teams.some(t=>t.picks.some(p=>p.identity===identity))){toast('That player has already been drafted.');return}const player=state.roundPool.find(p=>p.identity===identity);if(!player)return;const edition=editionForTeam(player,state.roundTeam);currentTeam().picks.push({...player,edition,draftedFrom:`${state.roundTeam.name} ${state.roundTeam.season}`});state.available=state.available.filter(p=>p.identity!==identity);state.roundPool=state.roundPool.filter(p=>p.identity!==identity);state.round++;if(state.teams.every(t=>t.picks.length===11)){renderGame();return}state.turn=pickSequence(state.round);if(state.round%state.count===0){refreshRoundPool();$('#search').value=''}renderGame()}
+    function positionFit(player,slot){const positions=player.positions||({GK:['GK'],DEF:['CB'],MID:['CM'],FWD:['ST']}[player.pos]||[]);if(positions.includes(slot))return slot==='CB'&&positions[0]==='CB'?1.04:1.06;const groups=[['ST','CF'],['LW','RW','LM','RM'],['CAM','CM'],['CDM','CM'],['CB','LB','RB','LWB','RWB'],['GK']];const sameGroup=groups.some(group=>group.includes(slot)&&positions.some(position=>group.includes(position)));return sameGroup?0.82:0.58}
+    function assignSlots(team){const slots=formations[team.formation].map(position=>({position,player:null}));for(const player of team.picks){let target=slots.filter(slot=>!slot.player).sort((a,b)=>positionFit(player,b.position)-positionFit(player,a.position))[0];if(target)target.player=player}return slots}
+    const formationRows={'4-3-3':[['ST'],['LW','CM','CM','CM','RW'],['LB','CB','CB','RB'],['GK']],'4-4-2':[['ST','ST'],['LM','CM','CM','RM'],['LB','CB','CB','RB'],['GK']],'3-5-2':[['ST','ST'],['LWB','CM','CM','CM','RWB'],['CB','CB','CB'],['GK']],'4-2-3-1':[['ST'],['LW','CAM','RW'],['CDM','CDM'],['LB','CB','CB','RB'],['GK']]};
+    function renderTeams(){const team=currentTeam();const slots=assignSlots(team);const lineup=slots.map(slot=>`<div class="slot ${slot.player?'':'empty'}"><span>${slot.position}</span><b>${slot.player?`${slot.player.name} (${slot.player.positions.join('/')}) · ${slot.player.edition.season} · ${slot.player.edition.rating}`:'—'}</b></div>`).join('');const board=formationRows[team.formation].map(row=>`<div class="shape-row">${row.map(position=>{const slot=slots.find(s=>s.position===position&&!s._shown);if(slot)slot._shown=true;const player=slot?.player;return `<div class="shape-player ${player?'':'empty'}" title="${player?player.positions.join(' / '):position}"><span class="shape-pos">${position}</span><span class="shape-name">${player?player.name:'Open slot'}</span></div>`}).join('')}</div>`).join('');const average=team.picks.length?Math.round(team.picks.reduce((n,p)=>n+p.edition.rating,0)/team.picks.length):0;$('#teams').innerHTML=`<div class="team-block"><div class="team-head"><div class="team-identity">${clubCrest(team.clubName,'medium')}<span>${team.name} · ${team.clubName} · ${team.formation}</span></div><em>${team.picks.length}/11 · Squad OVR ${team.picks.length?average:'—'}</em></div><div class="progress"><i style="width:${team.picks.length/11*100}%"></i></div><div class="shape-board" aria-label="${team.formation} formation">${board}</div><details><summary style="cursor:pointer;color:var(--muted);font-size:11px;margin-top:8px">Player ratings and season editions</summary><div class="slots">${lineup}</div></details><div class="footer">Only this manager’s team is shown during their turn.</div></div>`}
+    function teamStrength(team){const assigned=assignSlots(team);return Math.round(assigned.reduce((sum,slot)=>sum+(slot.player?slot.player.edition.rating*positionFit(slot.player,slot.position):0),0)/Math.max(1,assigned.length))}
+    function rng(seed){let x=seed>>>0;return()=>{x=(x*1664525+1013904223)>>>0;return x/4294967296}}
+    function playCupMatch(a,b,rand){const diff=(a.strength-b.strength)/13;const ag=Math.max(0,Math.round(1.25+diff*.54+(rand()-.5)*2.1));const bg=Math.max(0,Math.round(1.05-diff*.43+(rand()-.5)*2.1));return ag===bg?(rand()<.5?a:b):ag>bg?a:b}
+    function simulateCup(rankings,rand){let round=[...rankings].sort((a,b)=>b.strength-a.strength);let power=2**Math.floor(Math.log2(round.length));let byes=2*power-round.length;if(byes){const direct=round.slice(0,byes);const entrants=round.slice(byes);const winners=[];for(let i=0;i<entrants.length;i+=2)winners.push(playCupMatch(entrants[i],entrants[i+1],rand));round=[...direct,...winners]}while(round.length>1){round.sort((a,b)=>b.strength-a.strength);const winners=[];for(let i=0;i<round.length;i+=2){const home=round[i],away=round[round.length-1-i];winners.push(playCupMatch(home,away,rand))}round=winners}return round[0]}
+    function simulate(){const rand=rng(Date.now()|0);const rankings=state.teams.map((team,i)=>({team,i,strength:teamStrength(team),pts:0,w:0,d:0,l:0,gf:0,ga:0}));for(let a=0;a<rankings.length;a++)for(let b=a+1;b<rankings.length;b++)for(let leg=0;leg<2;leg++){const home=leg===0?rankings[a]:rankings[b],away=leg===0?rankings[b]:rankings[a];const diff=(home.strength-away.strength)/13;const hg=Math.max(0,Math.round(1.25+diff*.54+(rand()-.5)*2.1));const ag=Math.max(0,Math.round(1.05-diff*.43+(rand()-.5)*2.1));home.gf+=hg;home.ga+=ag;away.gf+=ag;away.ga+=hg;if(hg>ag){home.pts+=3;home.w++;away.l++}else if(ag>hg){away.pts+=3;away.w++;home.l++}else{home.pts++;away.pts++;home.d++;away.d++}}rankings.sort((a,b)=>b.pts-a.pts||(b.gf-b.ga)-(a.gf-a.ga)||b.strength-a.strength);const competitions={'Premier League':rankings[0]};['Champions League','FA Cup','Carabao Cup'].forEach(name=>competitions[name]=simulateCup(rankings,rand));return {rankings,competitions}}
+    const premierClubs=['Arsenal','Aston Villa','Bournemouth','Brentford','Brighton','Burnley','Chelsea','Crystal Palace','Everton','Fulham','Leeds United','Leicester City','Liverpool','Manchester City','Manchester United','Newcastle United','Nottingham Forest','Southampton','Tottenham','West Ham United'];
+    const europeanClubs=['Real Madrid','Barcelona','Atlético Madrid','Bayern Munich','Borussia Dortmund','Bayer Leverkusen','Inter Milan','AC Milan','Juventus','Napoli','Paris Saint-Germain','Marseille','Monaco','Benfica','Porto','Sporting CP','Ajax','PSV Eindhoven','Feyenoord','Celtic','Rangers','Club Brugge','Galatasaray','Fenerbahçe','Shakhtar Donetsk','Dynamo Kyiv','RB Leipzig','Eintracht Frankfurt','Sevilla','Villarreal','Real Sociedad','Lille','Lyon','Salzburg','Copenhagen','Young Boys','Fictional FC 1','Fictional FC 2','Fictional FC 3','Fictional FC 4','Fictional FC 5','Fictional FC 6','Fictional FC 7','Fictional FC 8','Fictional FC 9','Fictional FC 10'];
+    const extraCupClubs=['Bristol City','Middlesbrough','Norwich City','Coventry City','Sheffield United','Sunderland','West Bromwich Albion','Watford','Cardiff City','Swansea City','Blackburn Rovers','Queens Park Rangers','Millwall','Preston North End','Derby County','Stoke City','Portsmouth','Wrexham','Oxford United','Luton Town','Plymouth Argyle','Barnsley','Reading','Huddersfield Town','Bolton Wanderers','Charlton Athletic','Birmingham City','Blackpool','Peterborough United','Rotherham United','Wycombe Wanderers','Exeter City','Lincoln City','Stockport County','Leyton Orient','Mansfield Town','Doncaster Rovers','Wigan Athletic','Shrewsbury Town','Burton Albion','Crawley Town','Cheltenham Town','Fleetwood Town','Grimsby Town'];
+    const months=['August','September','October','November','December','January','February','March','April','May','June','July'];
+    function club(name,strength,manager=false,team=null){return {name,strength,manager,team}}
+    function createSeason(){const userClubs=state.teams.map(team=>club(team.clubName,teamStrength(team),true,team));const prem=[...userClubs];for(const name of premierClubs){if(prem.length>=20)break;if(!prem.some(c=>c.name===name))prem.push(club(name,76+Math.floor(Math.random()*13)))}let filler=1;while(prem.length<20)prem.push(club(`Premier Invitational ${filler++}`,77+Math.floor(Math.random()*10)));const cl=[...userClubs];for(const name of europeanClubs){if(cl.length>=36)break;if(!cl.some(c=>c.name===name))cl.push(club(name,75+Math.floor(Math.random()*16)))}while(cl.length<36)cl.push(club(`European Invitational ${cl.length+1}`,75+Math.floor(Math.random()*15)));const cup=[...prem];for(const name of extraCupClubs){if(cup.length>=64)break;if(!cup.some(c=>c.name===name))cup.push(club(name,65+Math.floor(Math.random()*17)))}while(cup.length<64)cup.push(club(`Cup Underdog ${cup.length+1}`,62+Math.floor(Math.random()*18)));return {prem,cl,cup,fixtures:[],log:[],table:new Map(prem.map(c=>[c,{club:c,pts:0,w:0,d:0,l:0,gf:0,ga:0}])),clTable:new Map(cl.map(c=>[c,{club:c,pts:0,w:0,d:0,l:0,gf:0,ga:0}])),cups:{'FA Cup':shuffled(cup),'Carabao Cup':shuffled(cup)},winners:{},transferHistory:[],transferPool:players.filter(p=>historicalNames.has(p.name)).flatMap(p=>historicalEditions(p).map(e=>({...p,club:e.club,identity:`market-${p.name}-${e.season}`,edition:e}))).filter(p=>!state.teams.some(t=>t.picks.some(x=>x.name===p.name))),roundRobin:0}}
+    function makeRoundRobin(clubs){let ring=[...clubs],rounds=[];for(let r=0;r<ring.length-1;r++){const games=[];for(let i=0;i<ring.length/2;i++){let home=ring[i],away=ring[ring.length-1-i];if(r%2)[home,away]=[away,home];games.push([home,away])}rounds.push(games);ring=[ring[0],ring[ring.length-1],...ring.slice(1,-1)]}return [...rounds,...rounds.map(games=>games.map(([h,a])=>[a,h]))]}
+    function liveStrength(club){return club.manager?teamStrength(club.team):club.strength}
+    function goals(home,away,rand){const diff=(liveStrength(home)-liveStrength(away))/18;return [Math.max(0,Math.round(1.35+diff*.72+(rand()-.5)*2.6)),Math.max(0,Math.round(1.15-diff*.55+(rand()-.5)*2.6))]}
+    function chooseScorer(team,rand){if(team.manager){const attackers=team.team.picks.filter(p=>p.positions.some(position=>['ST','CF','LW','RW'].includes(position)));const mids=team.team.picks.filter(p=>p.positions.some(position=>['CAM','CM'].includes(position)));const pool=attackers.length&&rand()<.72?attackers:mids.length?mids:team.team.picks;return pool[Math.floor(rand()*pool.length)]}return null}
+    function match(home,away,comp,stage,rand,month,trackStandings=true){const [hg,ag]=goals(home,away,rand);const goalEvents=[];for(let i=0;i<hg+ag;i++){const homeGoal=i<hg,club=homeGoal?home:away,player=chooseScorer(club,rand);goalEvents.push({minute:1+Math.floor(rand()*90),side:homeGoal?'home':'away',club:club.name,scorer:player?.name||`${club.name} forward`,player,homeScore:0,awayScore:0})}goalEvents.sort((a,b)=>a.minute-b.minute);let homeScore=0,awayScore=0;for(const event of goalEvents){if(event.side==='home')homeScore++;else awayScore++;event.homeScore=homeScore;event.awayScore=awayScore}const line={month,competition:comp,stage,home:home.name,away:away.name,homeScore:hg,awayScore:ag,score:`${hg}–${ag}`,events:goalEvents};state.season.log.push(line);if(home.manager)recordPlayerMatch(home.team,hg,ag,rand,goalEvents.filter(e=>e.side==='home'));if(away.manager)recordPlayerMatch(away.team,ag,hg,rand,goalEvents.filter(e=>e.side==='away'));if(trackStandings&&(comp==='Premier League'||comp==='Champions League')){const map=comp==='Premier League'?state.season.table:state.season.clTable;const h=map.get(home),a=map.get(away);h.gf+=hg;h.ga+=ag;a.gf+=ag;a.ga+=hg;if(hg>ag){h.pts+=3;h.w++;a.l++}else if(ag>hg){a.pts+=3;a.w++;h.l++}else{h.pts++;a.pts++;h.d++;a.d++}}return hg===ag?(rand()<.5?home:away):hg>ag?home:away}
+    function statFor(player){const key=String(player.identity??`${player.name}-${player.edition.season}`);if(!state.season.playerStats.has(key))state.season.playerStats.set(key,{player,apps:0,ratingTotal:0,goals:0,assists:0,cleanSheets:0});return state.season.playerStats.get(key)}
+    function recordPlayerMatch(team,scored,conceded,rand,goalEvents=[]){for(const player of team.picks){const stat=statFor(player);stat.apps++;if(player.positions.includes('GK')&&conceded===0)stat.cleanSheets++;let rating=6.1+(player.edition.rating-82)*.09+(scored>conceded?.55:scored===conceded?.12:-.45)+(rand()-.5)*1.5;if(player.positions.includes('GK')&&conceded===0)rating+=.45;stat.ratingTotal+=Math.max(4.5,Math.min(10,rating))}for(const event of goalEvents){if(event.player)statFor(event.player).goals++;const helpers=team.picks.filter(p=>p!==event.player);if(helpers.length&&rand()<.72)statFor(helpers[Math.floor(rand()*helpers.length)]).assists++}}
+    function shuffledPairs(clubs){const pool=shuffled(clubs),matches=[];for(let i=0;i<pool.length;i+=2)matches.push([pool[i],pool[i+1]]);return matches}
+    function setupSeasonFixtures(){const schedule=makeRoundRobin(state.season.prem);schedule.forEach((games,round)=>games.forEach(([h,a])=>state.season.fixtures.push({month:Math.floor(round*12/schedule.length),comp:'Premier League',stage:`Matchweek ${round+1}`,home:h,away:a})));const matchMonths=[1,2,3,4,5,7,8,9];for(let md=0;md<8;md++)shuffledPairs(state.season.cl).forEach(([h,a])=>state.season.fixtures.push({month:matchMonths[md],comp:'Champions League',stage:`League phase · Matchday ${md+1}`,home:h,away:a}));for(const comp of ['FA Cup','Carabao Cup'])for(let round=0;round<6;round++)state.season.fixtures.push({month:[1,3,5,7,9,10][round],comp,stage:['Third round','Fourth round','Fifth round','Quarter-final','Semi-final','Final'][round],cupRound:round,home:null,away:null})}
+    function calculateStandings(map){return [...map.values()].sort((a,b)=>b.pts-a.pts||(b.gf-b.ga)-(a.gf-a.ga)||b.gf-a.gf||b.club.strength-a.club.strength)}
+    function settleCupRound(comp,round,month){const teams=state.season.cups[comp];if(!teams||teams.length<2)return;const pairings=[];for(let i=0;i<teams.length;i+=2)pairings.push([teams[i],teams[i+1]]);const winners=pairings.map(([h,a])=>match(h,a,comp,['Third round','Fourth round','Fifth round','Quarter-final','Semi-final','Final'][round],state.season.rand,month));state.season.cups[comp]=winners;if(winners.length===1)state.season.winners[comp]=winners[0]}
+    function playMonth(month,deferRender=false){const s=state.season;s.rand=s.rand||rng(Date.now()|0);const due=s.fixtures.filter(f=>f.month===month&&f.comp!=='FA Cup'&&f.comp!=='Carabao Cup');for(const fixture of due)match(fixture.home,fixture.away,fixture.comp,fixture.stage,s.rand,month);for(const comp of ['FA Cup','Carabao Cup']){const fixture=s.fixtures.find(f=>f.month===month&&f.comp===comp);if(fixture)settleCupRound(comp,fixture.cupRound,month)}if(month===9){let qualifiers=calculateStandings(s.clTable).slice(0,16).map(row=>row.club);for(let r=0;r<4;r++){const winners=[];for(let i=0;i<qualifiers.length/2;i++){const h=qualifiers[i],a=qualifiers[qualifiers.length-1-i];winners.push(match(h,a,'Champions League',['Round of 16','Quarter-final','Semi-final','Final'][r],s.rand,10,false))}qualifiers=winners}if(qualifiers.length)s.winners['Champions League']=qualifiers[0]}state.seasonMonth=month+1;if(!deferRender)renderSeason()}
+    function finishDraft(){state.finished=true;state.season=createSeason();state.season.playerStats=new Map();state.teams.forEach(team=>team.picks.forEach(player=>statFor(player)));setupSeasonFixtures();state.seasonMonth=0;state.season.rand=rng(Date.now()|0);state.halfSeconds=Number($('#simSpeed').value)||4;$('#game').classList.add('hidden');$('#results').classList.add('hidden');$('#season').classList.remove('hidden');$('#slowSim').onclick=startSlowSim;$('#pauseSim').onclick=()=>setPlaybackPaused(!state.simPaused);$('#quickSim').onclick=quickSim;$('#pauseBroadcast').onclick=()=>setPlaybackPaused(!state.simPaused);$('#simSpeed').onchange=()=>{state.halfSeconds=Number($('#simSpeed').value)||4;syncSimControls()};$('#broadcastSpeed').onchange=()=>{state.halfSeconds=Number($('#broadcastSpeed').value)||4;syncSimControls()};$('#resetGame').onclick=reset;syncSimControls();renderSeason()}
+    function transferMarketCandidate(team,preference,outgoingRating,outgoingPositions){const direction=preference==='random'?(Math.random()<.5?'higher':'lower'):preference;const exactPositions=outgoingPositions?.length?outgoingPositions:['CM'];const role=exactPositions[Math.floor(Math.random()*exactPositions.length)];const applied=team.picks.map(p=>p.name);const market=state.season.transferPool.filter(p=>!applied.includes(p.name)&&p.positions?.includes(role));let choices=market.filter(p=>direction==='higher'?p.edition.rating>outgoingRating:p.edition.rating<outgoingRating);if(!choices.length)choices=market;if(choices.length){const incoming=choices[Math.floor(Math.random()*choices.length)];state.season.transferPool=state.season.transferPool.filter(p=>p.name!==incoming.name);return {...incoming,identity:`signing-${Date.now()}-${Math.random()}`,edition:incoming.edition,positions:[...incoming.positions]}}const bump=(direction==='higher'?1:-1)*(1+Math.floor(Math.random()*7));const rating=Math.max(72,Math.min(96,outgoingRating+bump));const broad=role==='GK'?'GK':['CB','LB','RB','LWB','RWB'].includes(role)?'DEF':['ST','CF','LW','RW'].includes(role)?'FWD':'MID';return {name:`Academy signing ${Math.floor(Math.random()*900+100)}`,pos:broad,positions:[role],nation:'New signing',club:'January transfer',identity:`signing-${Date.now()}-${Math.random()}`,edition:{season:'2026-27',rating}}}
+    function completeTransfer(team,outgoingIndex,preference,automatic=false){const outgoing=team.picks[outgoingIndex];if(!outgoing)return null;const incoming=transferMarketCandidate(team,preference,outgoing.edition.rating,outgoing.positions);team.picks[outgoingIndex]=incoming;statFor(incoming);const record={manager:team.name,outgoing,incoming,preference,automatic};state.season.transferHistory.push(record);return record}
+    function renderTransferStep(){const box=$('#janTransfers');box.classList.remove('hidden');const index=state.season.transferHistory.length;const team=state.teams[index];if(!team){state.janDone=true;box.innerHTML='<div class="result-card"><strong>January window closed</strong><p>Every manager made a one-player swap. Continue the season playback at your selected pace.</p><button id="closeJanuary" class="primary">Resume season ▶</button></div>';$('#closeJanuary').onclick=()=>{box.classList.add('hidden');state.simPaused=false;syncSimControls();simulateSlowMonth(state.seasonMonth)};return}box.innerHTML=`<div class="result-card"><div class="eyebrow">January transfer window · ${index+1}/${state.teams.length}</div><h3>${team.name} · ${team.clubName}: choose one player to transfer out</h3><p class="sub">The replacement is randomly selected at the same exact position. Choose a rating direction, and the incoming player and rating change will be shown.</p><div class="fields"><div class="field"><label for="outgoingPlayer">Player leaving</label><select id="outgoingPlayer">${team.picks.map((p,i)=>`<option value="${i}">${p.name} · ${p.positions.join('/') } · ${p.edition.rating}</option>`).join('')}</select></div><div class="field"><label for="transferRating">Incoming rating range</label><select id="transferRating"><option value="random">Surprise me · lower or higher</option><option value="higher">Try for a higher-rated player</option><option value="lower">Take a lower-rated player</option></select></div></div><div class="actions"><button id="completeTransfer" class="primary">Make same-position transfer ↔</button></div><div id="transferResult"></div></div>`;$('#completeTransfer').onclick=()=>{const outgoingIndex=Number($('#outgoingPlayer').value);const preference=$('#transferRating').value;const record=completeTransfer(team,outgoingIndex,preference);$('#transferResult').innerHTML=transferDisplay(record);$('#seasonTicker').classList.remove('hidden');$('#seasonTicker').innerHTML=transferDisplay(record);renderTeams();renderTransferStep()}}
+    function transferDisplay(record){if(!record)return '';const delta=record.incoming.edition.rating-record.outgoing.edition.rating;const direction=delta>0?`▲ ${delta} rating points higher`:delta<0?`▼ ${Math.abs(delta)} rating points lower`:'↔ same rating';return `<div class="result-card" style="margin-top:12px"><h3>${record.manager} · January deal</h3><p>OUT: ${record.outgoing.name} · ${record.outgoing.positions.join('/')} · ${record.outgoing.edition.rating}</p><p>IN: <strong>${record.incoming.name}</strong> · ${record.incoming.positions.join('/')} · ${record.incoming.edition.rating}</p><p><strong>${direction} · position retained</strong></p></div>`}
+    function advanceSeasonMonth(){if(state.seasonMonth>=12)return;if(state.seasonMonth===5&&!state.janDone){renderTransferStep();return}$('#janTransfers').classList.add('hidden');playMonth(state.seasonMonth)}
+    function syncSimControls(){const active=state.simMode==='slow'&&!state.seasonComplete;$('#pauseSim').classList.toggle('hidden',!active);$('#pauseSim').textContent=state.simPaused?'Resume ▶':'Pause ⏸';$('#slowSim').textContent=active?'Slow sim running…':'Slow sim full season ▶';$('#slowSim').disabled=active&&!state.simPaused||state.seasonComplete;$('#quickSim').disabled=state.seasonComplete;$('#pauseBroadcast').textContent=state.simPaused?'Resume ▶':'Pause ⏸';$('#simSpeed').value=String(state.halfSeconds);$('#broadcastSpeed').value=String(state.halfSeconds)}
+    function quickSim(){clearTimeout(state.simTimer);clearInterval(state.broadcastTimer);state.matchQueue=[];state.matchBatch=[];state.simMode='quick';state.simPaused=false;$('#matchBroadcast').classList.add('hidden');$('#slowSim').disabled=true;$('#quickSim').disabled=true;$('#janTransfers').classList.add('hidden');for(let month=state.seasonMonth;month<12;month++){if(month===5&&!state.janDone){while(state.season.transferHistory.length<state.teams.length){const team=state.teams[state.season.transferHistory.length];completeTransfer(team,Math.floor(Math.random()*team.picks.length),'random',true)}state.janDone=true}playMonth(month)}renderSeason();renderTicker();celebrateSeason();state.simMode=null;syncSimControls()}
+    function renderTicker(){const monthIndex=Math.max(0,state.seasonMonth-1);const monthMatches=state.season.log.filter(line=>line.month===monthIndex);const userClubs=new Set(state.teams.map(team=>team.clubName));const userMatches=monthMatches.filter(line=>userClubs.has(line.home)||userClubs.has(line.away));const shown=(userMatches.length?userMatches:monthMatches).slice(-12).reverse();const skipped=Math.max(0,monthMatches.length-shown.length);$('#seasonTicker').classList.remove('hidden');$('#seasonTicker').innerHTML=`<div class="eyebrow">${months[monthIndex]} · ${monthMatches.length} matches simulated</div><h3 style="margin:0 0 10px">${userMatches.length?'Your clubs · latest scores':'League and cup highlights'}</h3>${shown.length?shown.map(line=>`<div class="slot"><span class="table-club">${clubCrest(line.home)} ${line.home}</span><b>${line.score}</b><span class="table-club">${line.away} ${clubCrest(line.away)}</span><small>${line.competition}</small></div>`).join(''):'<p class="sub">No fixtures this month.</p>'}${skipped?`<p class="footer">${skipped} other fixtures were simulated in the background.</p>`:''}`}
+    function startSlowSim(){if(state.seasonMonth>=12)return;if(state.simMode==='slow'){setPlaybackPaused(state.simPaused?false:true);return}clearTimeout(state.simTimer);state.simMode='slow';state.simPaused=false;state.halfSeconds=Number($('#simSpeed').value)||4;$('#seasonTicker').classList.remove('hidden');$('#seasonTicker').innerHTML='<div class="eyebrow">Slow season playback</div><h3>Your clubs · live scores</h3><p class="sub">Several drafted-club fixtures can play side-by-side. Pause or change the speed anytime.</p>';syncSimControls();scheduleSlowMonth()}
+    function setPlaybackPaused(paused){state.simPaused=paused;clearTimeout(state.simTimer);if(paused)clearInterval(state.broadcastTimer);syncSimControls();if(!paused){if(state.matchBatch.length)startBroadcastClock();else scheduleSlowMonth()}else if($('#matchBroadcast').classList.contains('hidden'))$('#seasonTicker').innerHTML=`<div class="eyebrow">Simulation paused</div><h3>Season playback paused</h3><p class="sub">Press Resume to continue from the current fixture or January transfer window.</p>`}
+    function scheduleSlowMonth(){if(state.simPaused)return;if(state.seasonMonth>=12){state.simMode=null;syncSimControls();renderSeason();celebrateSeason();return}if(state.seasonMonth===5&&!state.janDone){state.simPaused=true;syncSimControls();$('#seasonTicker').innerHTML='<div class="eyebrow">January · transfer window</div><h3>Choose each manager’s transfer</h3><p class="sub">Season playback pauses for transfers. Your selected playback speed is kept for the fixtures after the window.</p>';renderTransferStep();return}simulateSlowMonth(state.seasonMonth)}
+    function isUserFixture(line){const userClubs=new Set(state.teams.map(team=>team.clubName));return userClubs.has(line.home)||userClubs.has(line.away)}
+    function simulateSlowMonth(month){if(state.simPaused)return;const firstNew=state.season.log.length;playMonth(month,true);state.matchQueue=state.season.log.slice(firstNew).filter(isUserFixture);renderSeason();renderTicker();if(state.matchQueue.length)playNextBroadcast();else scheduleSlowMonth()}
+    function takeBroadcastBatch(){
+      const batch=[],remaining=[],busyClubs=new Set(),waitingClubs=new Set();
+      const limit=state.teams.length;
+      for(const line of state.matchQueue){
+        const clubs=[line.home,line.away];
+        const conflict=clubs.some(name=>busyClubs.has(name)||waitingClubs.has(name));
+        if(batch.length<limit&&!conflict){
+          batch.push(line);
+          clubs.forEach(name=>busyClubs.add(name));
+        }else{
+          remaining.push(line);
+          // A club's later fixture must wait behind its earlier queued fixture.
+          clubs.forEach(name=>waitingClubs.add(name));
+        }
+      }
+      state.matchQueue=remaining;
+      return batch;
+    }
+    function playNextBroadcast(){if(state.simPaused)return;if(!state.matchQueue.length){state.matchBatch=[];$('#matchBroadcast').classList.add('hidden');renderSeason();renderTicker();scheduleSlowMonth();return}state.matchBatch=takeBroadcastBatch();showBroadcastBatch(state.matchBatch)}
+    function showBroadcastBatch(lines){clearInterval(state.broadcastTimer);state.broadcastElapsed=0;$('#matchBroadcast').classList.remove('hidden');$('#broadcastStage').textContent=`${months[lines[0].month]} · ${lines.length} drafted-club match${lines.length===1?'':'es'} at once · ${state.halfSeconds}s per half`;
+      $('#broadcastMatches').innerHTML=lines.map((line,index)=>`<article class="live-match-card"><div class="live-match-meta"><span>${line.competition}</span><span>${line.stage}</span></div><div class="live-match-teams"><div class="live-team">${clubCrest(line.home,'medium')}<span>${line.home}</span></div><strong class="live-score" data-live-score="${index}">0 — 0</strong><div class="live-team">${clubCrest(line.away,'medium')}<span>${line.away}</span></div></div><div class="live-events" data-live-events="${index}"><span class="live-event">0′ · Kick-off</span></div></article>`).join('');$('#broadcastClock').textContent='0′';$('#broadcastHalf').textContent='1ST HALF';$('#broadcastClockBar').style.width='0%';$('#broadcastCommentary').textContent=`${lines.length} matches live · scores shown together`;$('#skipBatch').onclick=finishBroadcast;$('#quickFinish').onclick=quickSim;syncSimControls();startBroadcastClock()}
+    function startBroadcastClock(){if(state.simPaused||!state.matchBatch.length)return;clearInterval(state.broadcastTimer);state.broadcastTimer=setInterval(()=>{state.broadcastElapsed++;const elapsed=state.broadcastElapsed,halfSeconds=state.halfSeconds,total=halfSeconds*2;const minute=Math.min(90,elapsed<=halfSeconds?Math.round(elapsed*45/halfSeconds):45+Math.round((elapsed-halfSeconds)*45/halfSeconds));$('#broadcastClock').textContent=elapsed===halfSeconds?'45′':`${minute}′`;$('#broadcastHalf').textContent=elapsed<halfSeconds?'1ST HALF':elapsed===halfSeconds?'HALF-TIME':'2ND HALF';$('#broadcastClockBar').style.width=`${Math.min(100,elapsed/total*100)}%`;state.matchBatch.forEach((line,index)=>{const events=line.events.filter(event=>event.minute<=minute);const latest=events.at(-1);const score=latest?`${latest.homeScore} — ${latest.awayScore}`:'0 — 0';const scoreNode=$(`[data-live-score="${index}"]`);if(scoreNode)scoreNode.textContent=elapsed>=total?line.score.replace('–','—'):score;const eventNode=$(`[data-live-events="${index}"]`);if(eventNode)eventNode.innerHTML=`${events.map(event=>`<span class="live-event goal">${event.minute}′ · ⚽ ${event.scorer} · ${event.homeScore}–${event.awayScore}</span>`).join('')||'<span class="live-event">0′ · Kick-off</span>'}${elapsed>=total?'<span class="live-event">90′ · Full-time</span>':''}`});$('#broadcastCommentary').textContent=elapsed>=total?'Full-time · next fixtures loading':'Live · match scores and scorers update together';if(elapsed>=total)finishBroadcast()},1000)}
+    function finishBroadcast(){clearInterval(state.broadcastTimer);$('#broadcastHalf').textContent='FULL-TIME';$('#broadcastClock').textContent='90′';$('#broadcastClockBar').style.width='100%';$('#matchBroadcast').classList.add('hidden');state.matchBatch=[];if(!state.simPaused)setTimeout(playNextBroadcast,250)}
+    function celebrateSeason(){if(state.confettiDone)return;state.confettiDone=true;const layer=$('#confettiLayer');layer.innerHTML=Array.from({length:150},(_,i)=>`<i class="confetti-piece" style="--left:${Math.random()*100}%;--color:${['#c8f169','#e4c47a','#f4f4e9','#79c7a2','#f47777'][i%5]};--fall:${3+Math.random()*5}s;--delay:${Math.random()*1.7}s;--drift:${Math.round((Math.random()-.5)*300)}px;--rotate:${Math.round(Math.random()*360)}deg"></i>`).join('');layer.classList.remove('hidden');setTimeout(()=>{layer.classList.add('hidden');layer.innerHTML=''},8500)}
+    function seasonTable(map){return calculateStandings(map).map((row,i)=>`<tr><td>${i+1}</td><td>${row.club.name}${row.club.manager?' · your XI':''}</td><td>${row.pts}</td><td>${row.w}-${row.d}-${row.l}</td><td>${row.gf-row.ga}</td><td>${row.club.manager?teamStrength(row.club.team):row.club.strength}</td></tr>`).join('')}
+    function renderSeason(){const month=Math.min(state.seasonMonth,11);const complete=state.seasonMonth>=12;state.seasonComplete=complete;if(complete&&!state.season.winners['Premier League'])state.season.winners['Premier League']=calculateStandings(state.season.table)[0].club;if(state.seasonMonth===5&&!state.janDone&&$('#janTransfers').classList.contains('hidden'))renderTransferStep();$('#seasonProgress').innerHTML=`<strong>${complete?'Season complete':months[month]+' · Month '+(month+1)+' of 12'}</strong> · ${state.season.log.length} matches played${state.janDone?' · January transfers complete':''}`;$('#nextMonth').disabled=complete;$('#nextMonth').textContent=complete?'Season complete':state.seasonMonth===5&&!state.janDone?'Complete January transfers →':`Sim ${months[month]} fixtures →`;$('#quickSim').classList.toggle('hidden',complete);const standings=seasonTable(state.season.table);const cl=seasonTable(state.season.clTable);const winners=Object.entries(state.season.winners).map(([name,w])=>`<div class="result-card"><strong>${name}</strong><div class="winner">🏆 ${w.name}</div></div>`).join('');const transfers=state.season.transferHistory.map(transferDisplay).join('');const recent=state.season.log.slice(-12).reverse().map(f=>`<tr><td>${months[f.month]}</td><td>${f.competition}</td><td>${f.stage}</td><td>${f.home}</td><td>${f.score}</td><td>${f.away}</td></tr>`).join('');$('#seasonSummary').innerHTML=`<div class="result-grid" style="margin-top:18px"><div class="result-card"><h3>Premier League · ${calculateStandings(state.season.table).filter(r=>r.club.manager).length} user clubs</h3><div style="max-height:380px;overflow:auto"><table class="table"><thead><tr><th>#</th><th>Club</th><th>Pts</th><th>W-D-L</th><th>GD</th><th>XI</th></tr></thead><tbody>${standings}</tbody></table></div></div><div class="result-card"><h3>Champions League · league phase</h3><div style="max-height:380px;overflow:auto"><table class="table"><thead><tr><th>#</th><th>Club</th><th>Pts</th><th>W-D-L</th><th>GD</th><th>XI</th></tr></thead><tbody>${cl}</tbody></table></div></div></div><h3>Competition winners</h3><div class="result-grid">${winners||'<div class="result-card"><p class="sub">Trophies are awarded as each knockout final is played.</p></div>'}</div><h3>January transfers</h3>${transfers||'<p class="sub">The transfer window opens in January. Each manager can swap one player for a random-position market signing.</p>'}<h3>Latest results</h3><div class="result-card" style="max-height:310px;overflow:auto"><table class="table"><thead><tr><th>Month</th><th>Comp</th><th>Stage</th><th>Home</th><th>Score</th><th>Away</th></tr></thead><tbody>${recent||'<tr><td colspan="6">No matches played yet.</td></tr>'}</tbody></table></div>`;const allLog=state.season.log.map(f=>`<tr><td>${months[f.month]}</td><td>${f.competition}</td><td>${f.stage}</td><td>${f.home}</td><td>${f.score}</td><td>${f.away}</td></tr>`).join('');$('#fixtureLog').innerHTML=`<table class="table"><thead><tr><th>Month</th><th>Competition</th><th>Stage</th><th>Home</th><th>Score</th><th>Away</th></tr></thead><tbody>${allLog}</tbody></table>`;$('#fixtureDetails').classList.toggle('hidden',!complete);if(state.seasonMonth===5&&!state.janDone)$('#janTransfers').classList.remove('hidden')}
+    function seasonTeamRankings(){return state.teams.map(team=>{const club=state.season.prem.find(c=>c.team===team);const league=club?state.season.table.get(club):{pts:0,gf:0,ga:0};const champions=state.season.cl.find(c=>c.team===team);const european=champions?state.season.clTable.get(champions):{pts:0};const trophies=Object.values(state.season.winners).filter(w=>w.team===team).length;const score=league.pts+(league.gf-league.ga)*.2+european.pts*.25+trophies*12;return {team,league,european,trophies,score}}).sort((a,b)=>b.score-a.score)}
+    function playerRankingMarkup(){const players=[...state.season.playerStats.values()].filter(s=>s.apps>0).map(s=>({...s,average:s.ratingTotal/s.apps,score:s.ratingTotal/s.apps+Math.min(18,s.goals+s.assists)*.035+s.cleanSheets*.012})).sort((a,b)=>b.score-a.score||b.goals-a.goals||b.assists-a.assists);if(!players.length)return '<p class="sub">No player performances recorded yet.</p>';return `<div class="result-card" style="max-height:680px;overflow:auto"><div class="player-rank head"><span>#</span><span>Player · manager</span><span>Apps</span><span>Avg</span><span>G+A</span><span>CS</span></div>${players.map((s,i)=>`<div class="player-rank"><span>${i===0?'🥇':i+1}</span><span class="name">${s.player.name} · ${state.teams.find(t=>t.picks.some(p=>String(p.identity??`${p.name}-${p.edition.season}`)===String(s.player.identity??`${s.player.name}-${s.player.edition.season}`)))?.name||'January signing'}</span><span>${s.apps}</span><span>${s.average.toFixed(2)}</span><span>${s.goals}+${s.assists}</span><span>${s.cleanSheets}</span></div>`).join('')}</div>`}
+    function renderSeason(){const month=Math.min(state.seasonMonth,11);const complete=state.seasonMonth>=12;state.seasonComplete=complete;if(complete&&!state.season.winners['Premier League'])state.season.winners['Premier League']=calculateStandings(state.season.table)[0].club;if(state.seasonMonth===5&&!state.janDone&&$('#janTransfers').classList.contains('hidden'))renderTransferStep();$('#seasonProgress').innerHTML=`<strong>${complete?'Season complete':months[month]+' · Month '+(month+1)+' of 12'}</strong> · ${state.season.log.length} matches played${state.janDone?' · January transfers complete':''}`;$('#nextMonth').disabled=complete;$('#nextMonth').textContent=complete?'Season complete':state.seasonMonth===5&&!state.janDone?'Complete January transfers →':`Sim ${months[month]} fixtures →`;$('#quickSim').classList.toggle('hidden',complete);const standings=seasonTable(state.season.table),cl=seasonTable(state.season.clTable);const winners=Object.entries(state.season.winners).map(([name,w])=>`<div class="result-card"><strong>${name}</strong><div class="winner">🏆 ${w.name}</div></div>`).join('');const transfers=state.season.transferHistory.map(transferDisplay).join('');const recent=state.season.log.slice(-12).reverse().map(f=>`<tr><td>${months[f.month]}</td><td>${f.competition}</td><td>${f.stage}</td><td>${f.home}</td><td>${f.score}</td><td>${f.away}</td></tr>`).join('');let awards='';if(complete){const teamRanks=seasonTeamRankings();const champion=teamRanks[0];const teamRows=teamRanks.map((r,i)=>`<tr><td>${i===0?'🥇 ':''}${i+1}</td><td>${r.team.name}</td><td>${r.league.pts}</td><td>${r.league.gf-r.league.ga}</td><td>${r.european.pts}</td><td>${r.trophies}</td><td>${r.score.toFixed(1)}</td></tr>`).join('');const trophyLabel=champion.trophies===1?'trophy':'trophies';awards=`<div class="team-award"><div class="eyebrow">Best overall season</div><strong>${champion.team.name}</strong> · ${champion.trophies} ${trophyLabel} · ${champion.league.pts} Premier League points · season score ${champion.score.toFixed(1)}</div><h3>Manager team rankings</h3><div class="result-card"><table class="table"><thead><tr><th>#</th><th>Manager</th><th>PL pts</th><th>PL GD</th><th>UCL pts</th><th>Trophies</th><th>Score</th></tr></thead><tbody>${teamRows}</tbody></table><p class="footer">Overall season score combines league points and goal difference, Champions League league-phase points, and a bonus for each trophy.</p></div><h3>Player of the season rankings</h3><p class="sub">Ranked by simulated average match rating, with goals, assists and goalkeeper clean sheets as tiebreak bonuses.</p>${playerRankingMarkup()}`}
+      $('#seasonSummary').innerHTML=`<div class="result-grid" style="margin-top:18px"><div class="result-card"><h3>Premier League · ${calculateStandings(state.season.table).filter(r=>r.club.manager).length} user clubs</h3><div style="max-height:380px;overflow:auto"><table class="table"><thead><tr><th>#</th><th>Club</th><th>Pts</th><th>W-D-L</th><th>GD</th><th>XI</th></tr></thead><tbody>${standings}</tbody></table></div></div><div class="result-card"><h3>Champions League · league phase</h3><div style="max-height:380px;overflow:auto"><table class="table"><thead><tr><th>#</th><th>Club</th><th>Pts</th><th>W-D-L</th><th>GD</th><th>XI</th></tr></thead><tbody>${cl}</tbody></table></div></div></div><h3>Competition winners</h3><div class="result-grid">${winners||'<div class="result-card"><p class="sub">Trophies are awarded as each knockout final is played.</p></div>'}</div><h3>January transfers</h3>${transfers||'<p class="sub">The transfer window opens in January. Each manager can swap one player for a random-position market signing.</p>'}<h3>Latest results</h3><div class="result-card" style="max-height:310px;overflow:auto"><table class="table"><thead><tr><th>Month</th><th>Comp</th><th>Stage</th><th>Home</th><th>Score</th><th>Away</th></tr></thead><tbody>${recent||'<tr><td colspan="6">No matches played yet.</td></tr>'}</tbody></table></div>${awards}`;const allLog=state.season.log.map(f=>`<tr><td>${months[f.month]}</td><td>${f.competition}</td><td>${f.stage}</td><td>${f.home}</td><td>${f.score}</td><td>${f.away}</td></tr>`).join('');$('#fixtureLog').innerHTML=`<table class="table"><thead><tr><th>Month</th><th>Competition</th><th>Stage</th><th>Home</th><th>Score</th><th>Away</th></tr></thead><tbody>${allLog}</tbody></table>`;$('#fixtureDetails').classList.toggle('hidden',!complete);if(state.seasonMonth===5&&!state.janDone)$('#janTransfers').classList.remove('hidden')}
+    function reset(){clearTimeout(state.simTimer);clearInterval(state.broadcastTimer);state.matchQueue=[];state.matchBatch=[];state.simMode=null;state.simPaused=false;state.finished=false;$('#matchBroadcast').classList.add('hidden');$('#results').classList.add('hidden');$('#season').classList.add('hidden');$('#game').classList.add('hidden');$('#setup').classList.remove('hidden');syncSimControls();updateSetup()}
+    let toastTimer;function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1900)}
+    $('#playerCount').onchange=updateSetup;$('#startButton').onclick=startGame;$('#search').oninput=renderCards;renderCategories();updateSetup();new MutationObserver(decorateSeasonBadges).observe($('#seasonSummary'),{childList:true,subtree:true});
+  </script>
+</body>
+</html>

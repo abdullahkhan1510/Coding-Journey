@@ -1,0 +1,402 @@
+{
+  "ac-milan": {
+    "club": "AC Milan",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Italy%20-%20Serie%20A/AC%20Milan.png"
+  },
+  "ajax": {
+    "club": "Ajax",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/Netherlands%20-%20Eredivisie/Ajax.png"
+  },
+  "arsenal": {
+    "club": "Arsenal",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/England%20-%20Premier%20League/Arsenal.png"
+  },
+  "aston-villa": {
+    "club": "Aston Villa",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Aston%20Villa.png"
+  },
+  "atletico-madrid": {
+    "club": "Atlético Madrid",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Spain%20-%20LaLiga/Atl%C3%A9tico%20de%20Madrid.png"
+  },
+  "barcelona": {
+    "club": "Barcelona",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Spain%20-%20LaLiga/FC%20Barcelona.png"
+  },
+  "bayer-leverkusen": {
+    "club": "Bayer Leverkusen",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Germany%20-%20Bundesliga/Bayer%2004%20Leverkusen.png"
+  },
+  "bayern-munich": {
+    "club": "Bayern Munich",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Germany%20-%20Bundesliga/Bayern%20Munich.png"
+  },
+  "benfica": {
+    "club": "Benfica",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/Portugal%20-%20Liga%20Portugal/Benfica.png"
+  },
+  "borussia-dortmund": {
+    "club": "Borussia Dortmund",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Germany%20-%20Bundesliga/Borussia%20Dortmund.png"
+  },
+  "bournemouth": {
+    "club": "Bournemouth",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/AFC%20Bournemouth.png"
+  },
+  "brentford": {
+    "club": "Brentford",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Brentford%20FC.png"
+  },
+  "brighton": {
+    "club": "Brighton",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Brighton%20%26%20Hove%20Albion.png"
+  },
+  "burnley": {
+    "club": "Burnley",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/England%20-%20Premier%20League/Burnley.png"
+  },
+  "celtic": {
+    "club": "Celtic",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Scotland%20-%20Scottish%20Premiership/Celtic%20FC.png"
+  },
+  "chelsea": {
+    "club": "Chelsea",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/England%20-%20Premier%20League/Chelsea.png"
+  },
+  "club-brugge": {
+    "club": "Club Brugge",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/Belgium%20-%20Jupiler%20Pro%20League/Club%20Brugge.png"
+  },
+  "copenhagen": {
+    "club": "Copenhagen",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Denmark%20-%20Superliga/FC%20Copenhagen.png"
+  },
+  "coventry-city": {
+    "club": "Coventry City",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Coventry%20City.png"
+  },
+  "crystal-palace": {
+    "club": "Crystal Palace",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Crystal%20Palace.png"
+  },
+  "dynamo-kyiv": {
+    "club": "Dynamo Kyiv",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Ukraine%20-%20Premier%20Liga/Dynamo%20Kyiv.png"
+  },
+  "eintracht-frankfurt": {
+    "club": "Eintracht Frankfurt",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Germany%20-%20Bundesliga/Eintracht%20Frankfurt.png"
+  },
+  "everton": {
+    "club": "Everton",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Everton%20FC.png"
+  },
+  "fenerbahce": {
+    "club": "Fenerbahçe",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/T%C3%BCrkiye%20-%20S%C3%BCper%20Lig/Fenerbahce.png"
+  },
+  "feyenoord": {
+    "club": "Feyenoord",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/Netherlands%20-%20Eredivisie/Feyenoord.png"
+  },
+  "fulham": {
+    "club": "Fulham",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Fulham%20FC.png"
+  },
+  "galatasaray": {
+    "club": "Galatasaray",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/T%C3%BCrkiye%20-%20S%C3%BCper%20Lig/Galatasaray.png"
+  },
+  "inter-milan": {
+    "club": "Inter Milan",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Italy%20-%20Serie%20A/Inter%20Milan.png"
+  },
+  "juventus": {
+    "club": "Juventus",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/Italy%20-%20Serie%20A/Juventus.png"
+  },
+  "leeds-united": {
+    "club": "Leeds United",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Leeds%20United.png"
+  },
+  "leicester-city": {
+    "club": "Leicester City",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2024-25/England%20-%20Premier%20League/Leicester%20City.png"
+  },
+  "lille": {
+    "club": "Lille",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/France%20-%20Ligue%201/LOSC%20Lille.png"
+  },
+  "liverpool": {
+    "club": "Liverpool",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Liverpool%20FC.png"
+  },
+  "luton-town": {
+    "club": "Luton Town",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2023-24/England%20-%20Premier%20League/Luton%20Town.png"
+  },
+  "lyon": {
+    "club": "Lyon",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/France%20-%20Ligue%201/Olympique%20Lyon.png"
+  },
+  "manchester-city": {
+    "club": "Manchester City",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Manchester%20City.png"
+  },
+  "manchester-united": {
+    "club": "Manchester United",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Manchester%20United.png"
+  },
+  "marseille": {
+    "club": "Marseille",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/France%20-%20Ligue%201/Olympique%20Marseille.png"
+  },
+  "monaco": {
+    "club": "Monaco",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/France%20-%20Ligue%201/AS%20Monaco.png"
+  },
+  "napoli": {
+    "club": "Napoli",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Italy%20-%20Serie%20A/SSC%20Napoli.png"
+  },
+  "newcastle-united": {
+    "club": "Newcastle United",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Newcastle%20United.png"
+  },
+  "nottingham-forest": {
+    "club": "Nottingham Forest",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Nottingham%20Forest.png"
+  },
+  "psv-eindhoven": {
+    "club": "PSV Eindhoven",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Netherlands%20-%20Eredivisie/PSV%20Eindhoven.png"
+  },
+  "paris-saint-germain": {
+    "club": "Paris Saint-Germain",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/France%20-%20Ligue%201/Paris%20Saint-Germain.png"
+  },
+  "porto": {
+    "club": "Porto",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Portugal%20-%20Liga%20Portugal/FC%20Porto.png"
+  },
+  "rb-leipzig": {
+    "club": "RB Leipzig",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Germany%20-%20Bundesliga/RB%20Leipzig.png"
+  },
+  "rangers": {
+    "club": "Rangers",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/Scotland%20-%20Scottish%20Premiership/Rangers.png"
+  },
+  "real-madrid": {
+    "club": "Real Madrid",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Spain%20-%20LaLiga/Real%20Madrid.png"
+  },
+  "real-sociedad": {
+    "club": "Real Sociedad",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Spain%20-%20LaLiga/Real%20Sociedad.png"
+  },
+  "salzburg": {
+    "club": "Salzburg",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Austria%20-%20Bundesliga/Red%20Bull%20Salzburg.png"
+  },
+  "sevilla": {
+    "club": "Sevilla",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Spain%20-%20LaLiga/Sevilla%20FC.png"
+  },
+  "shakhtar-donetsk": {
+    "club": "Shakhtar Donetsk",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Ukraine%20-%20Premier%20Liga/Shakhtar%20Donetsk.png"
+  },
+  "sheffield-united": {
+    "club": "Sheffield United",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2023-24/England%20-%20Premier%20League/Sheffield%20United.png"
+  },
+  "southampton": {
+    "club": "Southampton",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/England%20-%20Premier%20League/Southampton.png"
+  },
+  "sporting-cp": {
+    "club": "Sporting CP",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Portugal%20-%20Liga%20Portugal/Sporting%20CP.png"
+  },
+  "sunderland": {
+    "club": "Sunderland",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Sunderland%20AFC.png"
+  },
+  "tottenham": {
+    "club": "Tottenham",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/England%20-%20Premier%20League/Tottenham%20Hotspur.png"
+  },
+  "watford": {
+    "club": "Watford",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2021-22/England%20-%20Premier%20League/Watford%20FC.png"
+  },
+  "west-ham-united": {
+    "club": "West Ham United",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/history/2025-26/England%20-%20Premier%20League/West%20Ham%20United.png"
+  },
+  "young-boys": {
+    "club": "Young Boys",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Switzerland%20-%20Super%20League/BSC%20Young%20Boys.png"
+  },
+  "birmingham-city": {
+    "club": "Birmingham City",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/392.png"
+  },
+  "blackburn-rovers": {
+    "club": "Blackburn Rovers",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/365.png"
+  },
+  "bolton-wanderers": {
+    "club": "Bolton Wanderers",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/358.png"
+  },
+  "bristol-city": {
+    "club": "Bristol City",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/333.png"
+  },
+  "cardiff-city": {
+    "club": "Cardiff City",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/347.png"
+  },
+  "charlton-athletic": {
+    "club": "Charlton Athletic",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/372.png"
+  },
+  "derby-county": {
+    "club": "Derby County",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/374.png"
+  },
+  "lincoln-city": {
+    "club": "Lincoln City",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/314.png"
+  },
+  "middlesbrough": {
+    "club": "Middlesbrough",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png"
+  },
+  "millwall": {
+    "club": "Millwall",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/391.png"
+  },
+  "norwich-city": {
+    "club": "Norwich City",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/381.png"
+  },
+  "portsmouth": {
+    "club": "Portsmouth",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/385.png"
+  },
+  "preston-north-end": {
+    "club": "Preston North End",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/394.png"
+  },
+  "queens-park-rangers": {
+    "club": "Queens Park Rangers",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/334.png"
+  },
+  "stoke-city": {
+    "club": "Stoke City",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/336.png"
+  },
+  "swansea-city": {
+    "club": "Swansea City",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/318.png"
+  },
+  "west-bromwich-albion": {
+    "club": "West Bromwich Albion",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/383.png"
+  },
+  "wrexham": {
+    "club": "Wrexham",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png"
+  },
+  "barnsley": {
+    "club": "Barnsley",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/397.png"
+  },
+  "blackpool": {
+    "club": "Blackpool",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/346.png"
+  },
+  "burton-albion": {
+    "club": "Burton Albion",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/2567.png"
+  },
+  "doncaster-rovers": {
+    "club": "Doncaster Rovers",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/279.png"
+  },
+  "huddersfield-town": {
+    "club": "Huddersfield Town",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/335.png"
+  },
+  "leyton-orient": {
+    "club": "Leyton Orient",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/309.png"
+  },
+  "mansfield-town": {
+    "club": "Mansfield Town",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/304.png"
+  },
+  "oxford-united": {
+    "club": "Oxford United",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/311.png"
+  },
+  "peterborough-united": {
+    "club": "Peterborough United",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/342.png"
+  },
+  "plymouth-argyle": {
+    "club": "Plymouth Argyle",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/307.png"
+  },
+  "reading": {
+    "club": "Reading",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/338.png"
+  },
+  "stockport-county": {
+    "club": "Stockport County",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/400.png"
+  },
+  "wigan-athletic": {
+    "club": "Wigan Athletic",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/350.png"
+  },
+  "wycombe-wanderers": {
+    "club": "Wycombe Wanderers",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/344.png"
+  },
+  "cheltenham-town": {
+    "club": "Cheltenham Town",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/320.png"
+  },
+  "crawley-town": {
+    "club": "Crawley Town",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/2594.png"
+  },
+  "exeter-city": {
+    "club": "Exeter City",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/324.png"
+  },
+  "fleetwood-town": {
+    "club": "Fleetwood Town",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/3891.png"
+  },
+  "grimsby-town": {
+    "club": "Grimsby Town",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/386.png"
+  },
+  "rotherham-united": {
+    "club": "Rotherham United",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/402.png"
+  },
+  "shrewsbury-town": {
+    "club": "Shrewsbury Town",
+    "source": "https://a.espncdn.com/i/teamlogos/soccer/500/302.png"
+  },
+  "villarreal": {
+    "club": "Villarreal",
+    "source": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/Spain%20-%20LaLiga/Villarreal%20CF.png"
+  }
+}
