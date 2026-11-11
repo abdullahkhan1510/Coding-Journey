@@ -1,33 +1,16 @@
-import random
-counts = [0, 0, 0, 0, 0, 0]
-x = int(input("Seed: "))
-random.seed(x)
-rolls = int(input("Rolls: "))
-for i in range(0,rolls):
-    roll = random.randint(1,6)
-    
-    if roll == 1:
-        counts[0] = counts[0]+1
-    elif roll == 2:
-        counts[1] = counts[1]+1
-    elif roll == 3:
-        counts[2] = counts[2]+1
-    elif roll == 4:
-        counts[3] = counts[3]+1
-    elif roll == 5:
-        counts[4] = counts[4]+1
-    else:
-        counts[5] = counts[5]+1
-maxcount = counts[0]
-for i in range(1,6):
-    if counts[i] > maxcount:
-        maxcount = counts[i]
-        maxi = i
-    else:
-        pass
+def decrypt(ciphertext, key):
+    word = ""
+    for i in range (len(ciphertext)):
+        word = word + chr(ciphertext[i]^key)
+    return(word)
+ciphertext = [8, 14, 12, 7, 29, 115, 105, 4, 12, 12, 29, 105, 8, 29, 105, 4, 0, 13, 7, 0, 14, 1, 29]
+key = 0
+decrypt(ciphertext, key)
 
-for i in range(len(counts)):
-    num = counts[i]
-    print(f"{i+1}: {num}")
-
-print(f"Most common: {i} ({maxcount} times)")
+while key < 256:
+    if (decrypt(ciphertext, key))[:7] == "AGENT: ":
+        print(decrypt(ciphertext, key))
+        print(key)
+        break
+    else:
+        key = key + 1
