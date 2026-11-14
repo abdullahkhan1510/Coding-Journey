@@ -1,16 +1,17 @@
-def decrypt(ciphertext, key):
-    word = ""
-    for i in range (len(ciphertext)):
-        word = word + chr(ciphertext[i]^key)
-    return(word)
-ciphertext = [8, 14, 12, 7, 29, 115, 105, 4, 12, 12, 29, 105, 8, 29, 105, 4, 0, 13, 7, 0, 14, 1, 29]
-key = 0
-decrypt(ciphertext, key)
+import pytest
+from refuel import convert, gauge
 
-while key < 256:
-    if (decrypt(ciphertext, key))[:7] == "AGENT: ":
-        print(decrypt(ciphertext, key))
-        print(key)
-        break
-    else:
-        key = key + 1
+def test_convert():
+    assert convert("3/4") == 75
+    assert convert("1/4") == 25
+    with pytest.raises(ValueError):
+        convert("4/3")
+    with pytest.raises(ZeroDivisionError):
+        convert("5/0")
+    with pytest.raises(ValueError):
+        convert("-1/4")
+
+def test_gauge():
+    assert gauge(100) == "F"
+    assert gauge(0) == "E"
+    assert gauge(10) == "10%"
