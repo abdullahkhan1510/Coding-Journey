@@ -1,17 +1,17 @@
-import pytest
-from refuel import convert, gauge
-
-def test_convert():
-    assert convert("3/4") == 75
-    assert convert("1/4") == 25
-    with pytest.raises(ValueError):
-        convert("4/3")
-    with pytest.raises(ZeroDivisionError):
-        convert("5/0")
-    with pytest.raises(ValueError):
-        convert("-1/4")
-
-def test_gauge():
-    assert gauge(100) == "F"
-    assert gauge(0) == "E"
-    assert gauge(10) == "10%"
+nums = [[0,0,0] for i in range(3)]
+for row in range(1,4):
+    for col in range(1,4):
+        print("Enter a number for the position ",row,", ",col,": ", sep = "",end = "")
+        num = int(input())
+        nums[row-1][col-1] = num
+print("Table:")
+ctotal = [0,0,0]
+rtotal = [0,0,0]
+for row in range(0,3):
+    for col in range(0,3):
+        print(nums[row][col], end = " ")
+        rtotal[row] = rtotal[row] + nums[row][col]
+        ctotal[col] = ctotal[col] + nums[row][col]
+    print("")
+print(ctotal)
+print(rtotal)
